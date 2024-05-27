@@ -1,19 +1,21 @@
+@import '../../constants.scss';
+
 .footer-container {
-    background-color: #3A332C;
+    background-color: $dark-bg-color;
     text-align: center;
     padding: 0.5%;
     margin: 0%;
 
     .quote {
-        color: white;
+        color: $white-color;
     }
 
     .copy-right-text {
-        color:#93785B;
+        color:$extra-light-asset-color;
     }
 
     .icon {
-        color: #93785B;
+        color: $extra-light-asset-color;
     }
 
     h3{

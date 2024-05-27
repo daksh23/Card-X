@@ -1,0 +1,86 @@
+@import '../../constants.scss';
+
+/* styles.scss */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: $white-color;
+  
+    .header-logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+  
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 20px; // Adjust the gap as needed
+  
+      .header-links {
+        display: flex;
+        gap: 20px;
+  
+        a {
+          text-decoration: none;
+          color: $black-color;
+          font-size: 1em;
+          padding: 8px 12px;
+          transition: color 0.3s ease;
+        }
+      }
+  
+      .header-buttons {
+        display: flex;
+        gap: 10px;
+  
+        .btn {
+          padding: 8px 16px;
+          border: none;
+          cursor: pointer;
+            
+          &.login {
+            background-color: $dark-asset-color;
+            color: $white-color;
+           
+          }
+  
+          &.get-started {
+            background-color: $light-asset-color;
+            color: $black-color;
+          }
+        }
+      }
+    }
+  
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+  
+      .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        
+        .header-links,
+        .header-buttons {
+          width: 100%;
+          flex-direction: column;
+          gap: 10px;
+  
+          a,
+          .btn {
+            width: 100%;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  
