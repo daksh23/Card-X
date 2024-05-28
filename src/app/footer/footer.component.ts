@@ -23,7 +23,7 @@ export class FooterComponent implements OnInit {
     console.log("Method name :: getQuotes");
     
     this.http.get<QuoteModel>("http://localhost:8080/cardx/rest/v1/quotes").subscribe(data => {
-      console.log("Response from quote api :: " + data);
+      console.log("Response from quote api :: " + "Author :: " + data.author + " :: Quote :: " + data.text);
 
       if(data != null && (data.author != null || data.text != null)){
         // Splitting author string by comma and taking the first part - second part is watermark ( type.fit)

@@ -1,0 +1,22 @@
+[
+  {
+    "icon": "design_services",
+    "title": "Customizable Templates",
+    "description": "Choose from a variety of professional and stylish templates to create a card that reflects your personality and brand."
+  },
+  {
+    "icon": "qr_code",
+    "title": "QR Code Integration",
+    "description": "Each CardX comes with a unique QR code that can be scanned by any smartphone."
+  },
+  {
+    "icon": "fast_forward",
+    "title": "Instant Access",
+    "description": "Your details are instantly accessible via a dedicated webpage, eliminating the need for physical cards."
+  },
+  {
+    "icon": "lock_outline",
+    "title": "Secure and Private",
+    "description": "Your information is secure with our state-of-the-art encryption and privacy controls."
+  }
+]
