@@ -1,0 +1,79 @@
+@import '../../../constants.scss';
+
+.key-features-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px 10px 20px 10px;
+
+  h1{
+    margin: 0;
+  }
+
+  .description {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    max-width: 600px;
+  }
+
+  .features-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the row of cards */
+    gap: 20px;
+    width: 100%;
+
+    .feature-card {
+      display: flex;
+      flex-direction: column;
+      width: 250px; /* Fixed width for the cards */
+      padding: 12px;
+      border: 1px solid $extra-light-asset-color;
+      border-radius: 10px;
+      // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .feature-icon {
+        align-items: left;
+      }
+
+      h4 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 1em;
+        color: $extra-light-asset-color;
+      }
+    }
+  }
+
+  .cta-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: $white-color;
+    background-color: $dark-asset-color;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    .features-row {
+      flex-direction: column;
+      align-items: center;
+
+      .feature-card {
+        width: 100%; /* Make the card full width on smaller screens */
+        max-width: 250px; /* Ensure it doesn't exceed the fixed width */
+      }
+    }
+  }
+}
