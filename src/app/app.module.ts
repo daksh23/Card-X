@@ -11,6 +11,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { BannerComponent } from './home/banner/banner.component';
 import { CardDesignComponent } from './home/card-design/card-design.component';
+import { FeaturesComponent } from './features/features.component';
+import { DesignsComponent } from './designs/designs.component';
+import { PricingComponent } from './pricing/pricing.component';
+import { HelpPageComponent } from './help-page/help-page.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,12 @@ import { CardDesignComponent } from './home/card-design/card-design.component';
     FooterComponent,
     HomeComponent,
     BannerComponent,
-    CardDesignComponent
+    CardDesignComponent,
+    FeaturesComponent,
+    DesignsComponent,
+    PricingComponent,
+    HelpPageComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
