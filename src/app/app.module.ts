@@ -16,6 +16,7 @@ import { DesignsComponent } from './designs/designs.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { HelpPageComponent } from './help-page/help-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { FeatureListComponent } from './home/feature-list/feature-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     DesignsComponent,
     PricingComponent,
     HelpPageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FeatureListComponent
   ],
   imports: [
     BrowserModule,
