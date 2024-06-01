@@ -1,0 +1,12 @@
+<div class="card-design">
+    <h1>{{ title }}</h1>
+    <div class="image-row">
+      <div class="card" *ngFor="let card of cards">
+        <div class="person-name">{{ card.name }}</div>
+        <img [src]="card.image" alt="{{ card.name }}">
+      </div>
+    </div>
+    <button class="cta-button">View More</button>
+    <div class="center-line"></div>
+  </div>
+  
