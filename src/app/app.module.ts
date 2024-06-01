@@ -10,6 +10,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { BannerComponent } from './home/banner/banner.component';
+import { CardDesignComponent } from './home/card-design/card-design.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BannerComponent } from './home/banner/banner.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    BannerComponent
+    BannerComponent,
+    CardDesignComponent
   ],
   imports: [
     BrowserModule,

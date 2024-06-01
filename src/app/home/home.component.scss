@@ -4,12 +4,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   text-align: center;
+  padding: 10px 10px 20px 10px;
 
-  h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
+  h1{
+    margin: 0;
   }
 
   .description {
@@ -23,7 +22,6 @@
     flex-wrap: wrap;
     justify-content: center; /* Center the row of cards */
     gap: 20px;
-    margin-bottom: 20px;
     width: 100%;
 
     .feature-card {
@@ -57,18 +55,14 @@
   }
 
   .cta-button {
+    margin-top: 20px;
     padding: 10px 20px;
     font-size: 1em;
     color: $white-color;
     background-color: $dark-asset-color;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-
-    &:hover {
-      background-color: $dark-asset-color;
-    }
   }
 
   @media (max-width: 768px) {
