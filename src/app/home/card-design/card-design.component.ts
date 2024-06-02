@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
-import { CardDesignModel } from 'src/app/Model/cardDesign.model';
+import { Router } from '@angular/router';
+import { CardDesignModel } from 'src/app/Model/CardDesign.model';
+import { CardDesignService } from '../../Services/card-design.service';
 
 @Component({
   selector: 'app-card-design',
@@ -12,18 +14,26 @@ export class CardDesignComponent implements OnInit {
   title: string = 'Most Loved Designs';
 
   cards:CardDesignModel[] = [];
-
-  private httpClient = inject(HttpClient);
+  
+  private CardDesignService = inject(CardDesignService);
+  private router = inject(Router);
 
   ngOnInit(): void {
     this.getTheCardDesigns();
   }
 
   getTheCardDesigns() {
-    console.log("getTheCardDesigns method :: ");
+    console.log("CardDesignComponent  :: " + "getTheCardDesigns method :: ");
 
-    this.httpClient.get<CardDesignModel[]>('./assets/constants/CardDesigns.json').subscribe(data => {
-          this.cards = data;
+    this.CardDesignService.retrieveCardDesigns().subscribe(data => {
+      this.cards = data.splice(0, 3);
     });
+  }
+
+  toDesignPage(){
+    console.log("CardDesignComponent  :: " + "toDesignPage Method :: ");
+
+    this.router.navigateByUrl('/card-designs');
+    
   }
 }

@@ -11,6 +11,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { BannerComponent } from './home/banner/banner.component';
 import { CardDesignComponent } from './home/card-design/card-design.component';
+import { FeaturesComponent } from './features/features.component';
+import { DesignsComponent } from './designs/designs.component';
+import { PricingComponent } from './pricing/pricing.component';
+import { HelpPageComponent } from './help-page/help-page.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { FeatureListComponent } from './home/feature-list/feature-list.component';
+import { FeaturesService } from './Services/features.service';
+import { CardDesignService } from './Services/card-design.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +27,13 @@ import { CardDesignComponent } from './home/card-design/card-design.component';
     FooterComponent,
     HomeComponent,
     BannerComponent,
-    CardDesignComponent
+    CardDesignComponent,
+    FeaturesComponent,
+    DesignsComponent,
+    PricingComponent,
+    HelpPageComponent,
+    NotFoundComponent,
+    FeatureListComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +42,7 @@ import { CardDesignComponent } from './home/card-design/card-design.component';
     MatIconModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [FeaturesService, CardDesignService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

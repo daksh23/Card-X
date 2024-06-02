@@ -5,18 +5,4 @@
 <app-card-design></app-card-design>
 
 <!-- Feature component -->
-<div class="key-features-container">
-  <h1>Key Features</h1>
-  <p class="description">
-    CardX is more than just a digital business card. It's a powerful tool that
-    lets you take control of your professional identity.
-  </p>
-  <div class="features-row">
-    <div class="feature-card" *ngFor="let feature of features">
-      <mat-icon class="feature-icon">{{ feature.icon }}</mat-icon>
-      <h4>{{ feature.title }}</h4>
-      <p>{{ feature.description }}</p>
-    </div>
-  </div>
-  <button class="cta-button">See All Features</button>
-</div>
+<app-feature-list></app-feature-list>
