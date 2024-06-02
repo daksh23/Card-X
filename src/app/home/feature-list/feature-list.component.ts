@@ -20,7 +20,7 @@ export class FeatureListComponent {
   }
 
   getTheFeatureData() {
-    console.log("getTheFeatureData Method :: ");
+    console.log(" FeatureListComponent :: " + "getTheFeatureData Method :: ");
 
     // Subscribe return Observable returned by Calling Feature Service method to retrieve featuresList Data 
     this.featuresService.retrieveFeaturesList().subscribe(data => {

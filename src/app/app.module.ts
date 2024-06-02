@@ -18,6 +18,7 @@ import { HelpPageComponent } from './help-page/help-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FeatureListComponent } from './home/feature-list/feature-list.component';
 import { FeaturesService } from './Services/features.service';
+import { CardDesignService } from './Services/card-design.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { FeaturesService } from './Services/features.service';
     MatIconModule,
     HttpClientModule
   ],
-  providers: [FeaturesService],
+  providers: [FeaturesService, CardDesignService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

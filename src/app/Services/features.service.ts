@@ -12,7 +12,7 @@ export class FeaturesService {
   features:FeaturesModel[] = [];
 
   retrieveFeaturesList(): Observable<FeaturesModel[]> {
-    console.log("Service class :: FeaturesService :: " + "retrieveFeaturesList method :: ");
+    console.log("FeaturesService :: " + "retrieveFeaturesList method :: ");
     return this.httpClient.get<FeaturesModel[]>('./assets/constants/Features.json');
   }
 
