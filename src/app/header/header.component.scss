@@ -16,6 +16,11 @@ body {
     .header-logo {
       font-size: 1.5em;
       font-weight: bold;
+
+      h3{
+        margin: 0;
+        cursor: pointer;
+      }
     }
   
     .header-content {
@@ -26,6 +31,7 @@ body {
       .header-links {
         display: flex;
         gap: 20px;
+        cursor: pointer;
   
         a {
           text-decoration: none;

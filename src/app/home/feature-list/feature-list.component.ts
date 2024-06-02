@@ -1,28 +1,36 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FeaturesModel } from 'src/app/Model/Featrures.model';
+import { Router } from '@angular/router';
+import { FeaturesService } from 'src/app/Services/features.service';
 
 @Component({
   selector: 'app-feature-list',
   templateUrl: './feature-list.component.html',
-  styleUrls: ['./feature-list.component.scss']
+  styleUrls: ['./feature-list.component.scss'],
 })
 export class FeatureListComponent {
 
   features:FeaturesModel[] = [];
 
-  private httpClient = inject(HttpClient);
-
+  private router = inject(Router);
+  private featuresService = inject(FeaturesService);
+  
   ngOnInit(): void {
     this.getTheFeatureData();
   }
 
   getTheFeatureData() {
-    console.log("getTheFeatureData method :: ");
+    console.log("getTheFeatureData Method :: ");
 
-    this.httpClient.get<FeaturesModel[]>('./assets/constants/Features.json').subscribe(data => {
-          this.features = data;
+    // Subscribe return Observable returned by Calling Feature Service method to retrieve featuresList Data 
+    this.featuresService.retrieveFeaturesList().subscribe(data => {
+      this.features = data.slice(0, 3);
     });
+  }
+
+  toFeaturePage(){
+    console.log("toFeaturePage Method :: ");
+    this.router.navigateByUrl('/features');
   }
   
 }

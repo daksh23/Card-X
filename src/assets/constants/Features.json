@@ -18,5 +18,20 @@
     "icon": "lock_outline",
     "title": "Secure and Private",
     "description": "Your information is secure with our state-of-the-art encryption and privacy controls."
+  },
+  {
+    "icon": "share",
+    "title": "Easy Sharing",
+    "description": "Share your digital card effortlessly via email, social media, or a direct link, ensuring your contacts always have your latest information."
+  },
+  {
+    "icon": "update",
+    "title": "Real-Time Updates",
+    "description": "Update your contact details in real-time. Any changes you make are instantly reflected on your card, keeping your network always up-to-date."
+  },
+  {
+    "icon": "analytics",
+    "title": "Analytics and Insights",
+    "description": "Track how often your card is viewed and shared. Gain valuable insights into how your digital card is performing and who's engaging with your content."
   }
 ]

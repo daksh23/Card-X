@@ -1,11 +1,13 @@
 <header class="header plus-jakarta-sans-font">
-    <div class="header-logo">Card X</div>
+    <div class="header-logo">
+        <h3 (click)="routeFunc(home)" [class.active]="isActive(home)"> CardX </h3>
+    </div>
     <div class="header-content">
         <div class="header-links">
-            <a href="#designs">Designs</a>
-            <a href="#features">Features</a>
-            <a href="#prices">Prices</a>
-            <a href="#help">Help</a>
+            <a (click)="routeFunc(cardDesign)" [class.active]="isActive(cardDesign)">Designs</a>
+            <a (click)="routeFunc(features)" [class.active]="isActive(features)">Features</a>
+            <a (click)="routeFunc(pricing)" [class.active]="isActive(pricing)">Prices</a>
+            <a (click)="routeFunc(help)" [class.active]="isActive(help)">Help</a>
         </div>
         <div class="header-buttons">
             <button class="btn login">Login</button>

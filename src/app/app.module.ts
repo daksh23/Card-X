@@ -17,6 +17,7 @@ import { PricingComponent } from './pricing/pricing.component';
 import { HelpPageComponent } from './help-page/help-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FeatureListComponent } from './home/feature-list/feature-list.component';
+import { FeaturesService } from './Services/features.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { FeatureListComponent } from './home/feature-list/feature-list.component
     MatIconModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [FeaturesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

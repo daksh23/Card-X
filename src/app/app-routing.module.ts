@@ -12,7 +12,7 @@ const routes: Routes = [
   { path:'', component:HomeComponent },
   { path:'help', component:HelpPageComponent },
   { path:'features', component:FeaturesComponent },
-  { path:'card-design', component:DesignsComponent },
+  { path:'card-designs', component:DesignsComponent },
   { path:'pricing', component:PricingComponent },
   { path:'**', component:NotFoundComponent }
 ];
