@@ -1,17 +1,19 @@
 @import '../../../constants.scss';
 
 .banner {
-    height: 400px;  
-    background-color: $light-bg-color;
-    background-size: cover;
-    background-position: center;
+    height: 400px;
+    background: url('/assets/backgrounds/waves.png') repeat-x;
+    background-repeat: no-repeat;
+    background-size: 100% 450px;
     display: flex;
-    align-items: flex-end;
-    padding: 20px;
-  
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: $white-color;
+
     .banner-content {
-      max-width: 600px;
-      color: $white-color;
+      position: relative;
+      z-index: 1;
     
       .cta-button {
         padding: 10px 20px;
