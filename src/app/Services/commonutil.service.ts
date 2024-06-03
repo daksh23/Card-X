@@ -8,7 +8,7 @@ export class CommonutilService {
   
   constructor(private router:Router) { }
 
- goToHome(value:string){
+ goToPageByUrl(value:string){
     this.router.navigate([`/${value}`]);
  } 
 

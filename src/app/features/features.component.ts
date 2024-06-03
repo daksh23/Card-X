@@ -20,7 +20,7 @@ export class FeaturesComponent {
   }
 
   goToHome(){
-    this.CommonutilService.goToHome("home");
+    this.CommonutilService.goToPageByUrl("home");
   }
   
   isActive(){

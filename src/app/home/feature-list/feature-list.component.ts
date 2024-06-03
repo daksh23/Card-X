@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FeaturesModel } from 'src/app/Model/Featrures.model';
 import { Router } from '@angular/router';
 import { FeaturesService } from 'src/app/Services/features.service';
+import { CommonutilService } from '../../Services/commonutil.service';
 
 @Component({
   selector: 'app-feature-list',
@@ -14,6 +15,7 @@ export class FeatureListComponent {
 
   private router = inject(Router);
   private featuresService = inject(FeaturesService);
+  private CommonutilService = inject(CommonutilService);
   
   ngOnInit(): void {
     this.getTheFeatureData();
@@ -29,8 +31,11 @@ export class FeatureListComponent {
   }
 
   toFeaturePage(){
-    console.log("toFeaturePage Method :: ");
-    this.router.navigateByUrl('/features');
+    this.CommonutilService.goToPageByUrl("features");
+  }
+
+  isActive(){
+    this.CommonutilService.isActive("features");
   }
   
 }

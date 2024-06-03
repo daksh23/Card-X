@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonutilService } from '../Services/commonutil.service';
 
 @Component({
   selector: 'app-header',
@@ -16,12 +17,13 @@ export class HeaderComponent {
 
   router:Router = inject(Router);
 
+  CommonutilService:CommonutilService = inject(CommonutilService);
+
   routeFunc(value:string){
-    this.router.navigate([`/${value}`]);
+    this.CommonutilService.goToPageByUrl(value);
   }
   
   isActive(value:string):boolean {
-    return this.router.url.includes(value);    
+    return this.CommonutilService.isActive(value);
   }
-
 }
