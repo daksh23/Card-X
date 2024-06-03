@@ -1,0 +1,99 @@
+/* home-page.component.scss */
+@import "../../constants.scss";
+
+.features-page {
+  .banner {
+    position: relative;
+    height: 400px;
+    background: url('/assets/backgrounds/waves.png') repeat-x;
+    background-repeat: no-repeat;
+    background-size: 100% 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: $white-color;
+
+    .banner-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+   
+  }
+
+  .features-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the row of cards */
+    gap: 20px;
+    margin: 10px 40px 40px 40px;
+    padding: 40px 40px 0px 40px;
+
+    .feature-card {
+      display: flex;
+      flex-direction: column;
+      width: 250px;
+      padding: 12px;
+      border: 1px solid $extra-light-asset-color;
+      border-radius: 10px;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .feature-icon {
+        align-items: left;
+      }
+
+      h4 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 1em;
+        color: $extra-light-asset-color;
+      }
+    }
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0px 0px 20px 0px;
+
+    .cta-button {
+      padding: 10px 20px;
+      font-size: 1em;
+      color: $white-color;
+      background-color: $dark-asset-color;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .features-row {
+        flex-direction: column;
+        align-items: center;
+
+        .feature-card {
+          width: 100%; /* Make the card full width on smaller screens */
+          max-width: 250px; /* Ensure it doesn't exceed the fixed width */
+        }
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CardDesignModel } from 'src/app/Model/CardDesign.model';
 import { CardDesignService } from '../../Services/card-design.service';
+import { CommonutilService } from '../../Services/commonutil.service';
 
 @Component({
   selector: 'app-card-design',
@@ -17,6 +18,7 @@ export class CardDesignComponent implements OnInit {
   
   private CardDesignService = inject(CardDesignService);
   private router = inject(Router);
+  private CommonutilService = inject(CommonutilService);
 
   ngOnInit(): void {
     this.getTheCardDesigns();
@@ -31,9 +33,10 @@ export class CardDesignComponent implements OnInit {
   }
 
   toDesignPage(){
-    console.log("CardDesignComponent  :: " + "toDesignPage Method :: ");
+    this.CommonutilService.goToPageByUrl("card-designs");
+  }
 
-    this.router.navigateByUrl('/card-designs');
-    
+  isActive(){
+    this.CommonutilService.isActive("card-designs");
   }
 }
