@@ -1,1 +1,50 @@
-<p>pricing works!</p>
+<div class="pricing-page">
+  <!-- Banner Section -->
+  <div class="banner">
+    <div class="banner-content">
+      <h1>Choose the plan that's best for you</h1>
+      <p>CardX works for everyone. Starting at just $5 a card.</p>
+    </div>
+  </div>
+
+  <!-- Pricing Cards Section -->
+  <div class="pricing-container">
+    <div class="pricing-card">
+      <h3 class="card-title">Standard</h3>
+      <h2 class="card-price">$5</h2>
+      <ul class="features">
+        <li>- Instant Access</li>
+        <li>- Secure and Private</li>
+        <li>- Easy Sharing</li>
+      </ul>
+      <button class="pricing-button" (click)="buy()">Buy</button>
+    </div>
+    <div class="pricing-card">
+      <h3 class="card-title">Advanced</h3>
+      <h2 class="card-price">$10</h2>
+      <ul class="features">
+        <li>- Design Customization</li>
+        <li>- Instant Access</li>
+        <li>- Secure and Private</li>
+        <li>- Easy Sharing</li>
+      </ul>
+      <button class="pricing-button" (click)="buy()">Buy</button>
+    </div>
+    <div class="pricing-card">
+      <h3 class="card-title">Premium</h3>
+      <h2 class="card-price">$20</h2>
+      <ul class="features">
+        <li>- Design Customization</li>
+        <li>- Instant Access</li>
+        <li>- Secure and Private</li>
+        <li>- Easy Sharing</li>
+        <li>- Analytics and Insights</li>
+        <li>- Real-Time Updates</li>
+      </ul>
+      <button class="pricing-button" (click)="buy()">Buy</button>
+    </div>
+  </div>
+  <div class="button-container">
+    <button class="home-button" (click)="goToHome()" [class.active]="isActive()">GO TO HOME</button>
+  </div>
+</div>

@@ -20,6 +20,7 @@ import { FeatureListComponent } from './home/feature-list/feature-list.component
 import { FeaturesService } from './Services/features.service';
 import { CardDesignService } from './Services/card-design.service';
 import { CommonutilService } from './Services/commonutil.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CommonutilService } from './Services/commonutil.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule      
   ],
   providers: [FeaturesService, CardDesignService, CommonutilService],
   bootstrap: [AppComponent]
