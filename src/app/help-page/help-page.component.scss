@@ -1,0 +1,148 @@
+@import "../../constants.scss";
+
+.inquiry-page {
+  .banner {
+    position: relative;
+    height: 400px;
+    background: url("/assets/backgrounds/waves.png") repeat-x;
+    background-repeat: no-repeat;
+    background-size: 100% 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: $white-color;
+
+    .banner-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: $white-color;
+    }
+  }
+
+  .form-container {
+    padding: 40px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .form-row {
+        display: flex;
+        justify-content: space-between;
+
+        .form-group {
+          flex: 1;
+          margin-right: 10px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+
+        label {
+          margin-bottom: 5px;
+          display: block;
+          color: $dark-asset-color;
+        }
+
+        input,
+        textarea {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid $extra-light-asset-color;
+          border-radius: 5px;
+          font-size: 1em;
+        }
+
+        input[type="file"] {
+          padding: 0;
+        }
+      }
+
+      .cta-button {
+        padding: 10px 20px;
+        font-size: 1em;
+        max-width: 200px;
+        color: $white-color;
+        background-color: $dark-asset-color;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:disabled {
+          background-color: $disabled;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+// COnfirmation Div
+.thank-you-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  text-align: center;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $white-color;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.mat-icon {
+  .large-icon {
+    color: $sent_icon;
+    margin-bottom: 100px;
+  }
+}
+
+h1 {
+  font-size: 2em;
+  padding: 0px;
+  margin: 0px;
+}
+
+h3 {
+  font-size: 1.4em;
+  color: $light-asset-color;
+  margin: 0px;
+}
+
+p {
+  font-size: 1em;
+  margin-bottom: 20px;
+  color: $extra-light-asset-color;
+}
+
+.home-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: $white-color;
+  background-color: $dark-asset-color;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}

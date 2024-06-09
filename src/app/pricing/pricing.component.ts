@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonutilService } from '../Services/commonutil.service';
 
 @Component({
   selector: 'app-pricing',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class PricingComponent {
 
+  constructor( private commonutilService:CommonutilService) {}
+
+  
+  goToHome(){
+    this.commonutilService.goToPageByUrl("home");
+  }
+  
+  isActive(){
+    this.commonutilService.isActive("home");
+  }
+
+  buy(){
+    console.log("Buy ...");
+  }
 }
