@@ -1,0 +1,117 @@
+@import "../../constants.scss";
+
+.card-design-page {
+  .banner {
+    position: relative;
+    height: 400px;
+    background: url("/assets/backgrounds/waves.png") repeat-x;
+    background-repeat: no-repeat;
+    background-size: 100% 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: $white-color;
+
+    .banner-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+  }
+
+  .card-design-text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin: 20px auto;
+
+    .card-design-text {
+      text-align: center;
+      padding: 10px;
+    }
+
+    h3 {
+      color: $extra-light-asset-color;
+    }
+
+    p {
+      counter-reset: $light-asset-color;
+    }
+    
+  }
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: $white-color;
+    background-color: $dark-asset-color;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+}
+
+.weekly-section {
+  text-align: center;
+
+  .weekly-design-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .image-row {
+      display: flex;
+      flex-wrap: wrap; 
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+      width: 100%;
+      max-width: 1020px;
+    }
+
+    .card {
+      position: relative;
+      width: calc(33.33% - 20px);
+      height: 180px;
+      border: 1px solid $extra-light-asset-color;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px; 
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .person-name {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+    }
+  }
+}

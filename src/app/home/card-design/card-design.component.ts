@@ -17,7 +17,6 @@ export class CardDesignComponent implements OnInit {
   cards:CardDesignModel[] = [];
   
   private CardDesignService = inject(CardDesignService);
-  private router = inject(Router);
   private CommonutilService = inject(CommonutilService);
 
   ngOnInit(): void {

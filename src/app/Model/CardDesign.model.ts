@@ -1,5 +1,5 @@
 export interface CardDesignModel {
-    name: string;
-    image: string;
-  }
-  
+  name: string;
+  collection: string;
+  image: string;
+}
