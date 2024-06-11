@@ -10,10 +10,11 @@ export class CardDesignService {
 
   constructor(private httpClient:HttpClient) { }
 
-
   retrieveCardDesigns() : Observable<CardDesignModel[]> {
     console.log("Service class :: CardDesignService :: " + "retrieveCardDesigns method :: ");
 
    return this.httpClient.get<CardDesignModel[]>('./assets/constants/CardDesigns.json');
   }
+
+
 }

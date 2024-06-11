@@ -1,1 +1,67 @@
-<p>designs works!</p>
+<div class="card-design-page">
+  <div class="banner">
+    <div class="banner-content">
+      <h1>Card Design Studio</h1>
+      <p>
+        Explore stunning templates and unleash your creativity. Generate unique
+        designs effortlessly with our AI-powered tool. New designs every week!
+      </p>
+    </div>
+  </div>
+
+  <div class="card-design-text-container">
+    <div class="card-design-text">
+      <h1>Create Your Own Design</h1>
+      <h3>Revolutionize Your Card Design with AI</h3>
+      <p>
+        Welcome to the future of card design! Our advanced AI technology makes
+        it easy to create beautiful, personalized designs for any type of
+        physical card you need. Whether it's business cards, greeting cards,
+        invitations, or anything else, our AI generates unique and eye-catching
+        designs just for you. No more boring templates—just tell us what you
+        want, and our AI will handle the rest. It's fast, creative, and tailored
+        to your style. Try it today and see how simple and fun designing cards
+        can be with the power of AI!
+      </p>
+      <div class="button-container">
+        <button class="button" (click)="goToAi()">GO TO AI</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="center-line"></div>
+
+  <div class="weekly-section">
+    <h1>Our Weekly Designs</h1>
+    <div class="weekly-design-box">
+      <div class="image-row">
+        <div class="card" *ngFor="let card of cards">
+          <div class="person-name">{{ card.name }}</div>
+          <img [src]="card.image" alt="{{ card.name }}" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="center-line"></div>
+
+  <div class="all-time-design-section">
+    <div class="weekly-section">
+      <h1>Our Weekly Designs</h1>
+      <div class="weekly-design-box">
+        <div class="image-row">
+          <div class="card" *ngFor="let card of allTimeCards">
+            <div class="person-name">{{ card.name }}</div>
+            <img [src]="card.image" alt="{{ card.name }}" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button class="button" (click)="goToHome()" [class.active]="isActive()">
+      GO TO HOME
+    </button>
+  </div>
+</div>
