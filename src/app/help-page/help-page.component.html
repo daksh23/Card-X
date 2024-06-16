@@ -15,44 +15,50 @@
     <form id="form" (ngSubmit)="onSubmit()" #inquiryForm="ngForm">
       <div class="form-row">
         <div class="form-group">
-          <label for="firstName">First Name 
-            <span> * </span> 
-        </label>
+          <label for="firstName"
+            >First Name
+            <span> * </span>
+          </label>
           <input type="text" id="firstName" name="firstName" ngModel required />
         </div>
         <span> &nbsp; &nbsp; &nbsp; </span>
         <div class="form-group">
-          <label for="lastName">Last Name
-             <span> * </span> 
-            </label>
+          <label for="lastName"
+            >Last Name
+            <span> * </span>
+          </label>
           <input type="text" id="lastName" name="lastName" ngModel required />
         </div>
       </div>
 
       <div class="form-group">
-        <label for="email">Email 
-            <span> * </span> 
+        <label for="email"
+          >Email
+          <span> * </span>
         </label>
         <input type="email" id="email" name="email" ngModel required />
       </div>
 
       <div class="form-group">
-        <label for="phone">Phone Number
-            <span> * </span>
+        <label for="phone"
+          >Phone Number
+          <span> * </span>
         </label>
         <input type="tel" id="phone" name="phone" ngModel />
       </div>
 
       <div class="form-group">
-        <label for="subject">Subject
-            <span> * </span>
+        <label for="subject"
+          >Subject
+          <span> * </span>
         </label>
         <input type="text" id="subject" name="subject" ngModel required />
       </div>
 
       <div class="form-group">
-        <label for="question">Question
-            <span> * </span>
+        <label for="question"
+          >Question
+          <span> * </span>
         </label>
         <textarea
           id="question"

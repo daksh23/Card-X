@@ -21,6 +21,10 @@ import { FeaturesService } from './Services/features.service';
 import { CardDesignService } from './Services/card-design.service';
 import { CommonutilService } from './Services/commonutil.service';
 import { FormsModule } from '@angular/forms';
+import { CardAIComponent } from './card-ai/card-ai.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,11 @@ import { FormsModule } from '@angular/forms';
     PricingComponent,
     HelpPageComponent,
     NotFoundComponent,
-    FeatureListComponent
+    FeatureListComponent,
+    CardAIComponent,
+    LoginComponent,
+    RegisterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

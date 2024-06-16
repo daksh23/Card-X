@@ -71,7 +71,11 @@
         }
 
         input[type="file"] {
-          padding: 0;
+          width: 100%;
+              padding: 10px;
+              border: 1px solid $extra-light-asset-color;
+              border-radius: 5px;
+              font-size: 1em;
         }
       }
 
