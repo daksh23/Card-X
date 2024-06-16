@@ -30,7 +30,7 @@ export class DesignsComponent {
   }
 
   goToAi() {
-    console.log("Comming soon!");
+    this.CommonutilService.goToPageByUrl('card-ai');
   }
 
   goToHome(){

@@ -14,6 +14,8 @@ export class HeaderComponent {
   pricing:string = 'pricing';
   help:string = 'help';
   home:string = 'home';
+  login:string = "login";
+  register:string = "register";
 
   router:Router = inject(Router);
 

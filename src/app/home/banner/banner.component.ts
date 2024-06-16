@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CommonutilService } from '../../Services/commonutil.service';
 
 @Component({
   selector: 'app-banner',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class BannerComponent {
 
+  commonutilService:CommonutilService = inject(CommonutilService);
+
+  goToRegister() {
+    this.commonutilService.goToPageByUrl('register');
+  }
+
+  isActive(){
+    this.commonutilService.isActive('register');
+  }
 }

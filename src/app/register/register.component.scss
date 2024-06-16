@@ -1,0 +1,158 @@
+@import "../../constants.scss";
+
+.register-page {
+  .banner {
+    position: relative;
+    height: 400px;
+    background: url("/assets/backgrounds/waves.png") repeat-x;
+    background-repeat: no-repeat;
+    background-size: 100% 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: $white-color;
+
+    .banner-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+  }
+
+  .form-container {
+    padding: 40px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .form-box {
+        width: 100%;
+        padding: 20px;
+        border: 1px solid $extra-light-asset-color;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+          font-size: 1.5em;
+          margin-bottom: 20px;
+        }
+
+        .cta-button {
+          margin-top: 20px; /* Ensure buttons are spaced from other elements */
+        }
+      }
+
+      .form-row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .form-group {
+          flex: 1;
+          margin-right: 10px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          input,
+          textarea,
+          input[type="file"] {
+            width: calc(100% - 20px); /* Adjust width to account for padding */
+            padding: 10px;
+            // border: 1px solid $extra-light-asset-color;
+            border-radius: 5px;
+            font-size: 1em;
+          }
+        }
+      }
+
+      .form-group {
+        width: 100%;
+        margin-bottom: 20px;
+
+        label {
+          margin-bottom: 5px;
+          display: block;
+          color: $dark-asset-color;
+        }
+
+        input,
+        textarea,
+        input[type="file"] {
+          width: calc(100% - 20px); /* Adjust width to account for padding */
+          padding: 10px;
+          // border: 1px solid $extra-light-asset-color;
+          border-radius: 5px;
+          font-size: 1em;
+        }
+      }
+
+      .cta-button {
+        width: 100%; /* Ensure button width matches input width */
+        padding: 10px 20px;
+        font-size: 1em;
+        margin: 0px 0px 20px 0px;
+        color: $white-color;
+        background-color: $dark-asset-color;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:disabled {
+          background-color: $disabled;
+          cursor: not-allowed;
+        }
+      }
+
+      .remove-add-cta-button{
+        width: 100%; /* Ensure button width matches input width */
+        padding: 10px 20px;
+        font-size: 1em;
+        margin: 0px 0px 20px 0px;
+        color: $white-color;
+        background-color: $extra-light-asset-color;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:disabled {
+          background-color: $disabled;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+/* Angular css class */
+input.ng-invalid.ng-touched {
+  border: 1px red solid;  
+}
+
+input.ng-invalid.ng-untouched {
+  border: 1px $extra-light-asset-color solid;  
+}
+
+input.ng-valid.ng-untouched {
+  border: 1px $extra-light-asset-color solid;  
+}
+
+input.ng-valid.ng-touched {
+  border: 1px $extra-light-asset-color solid;  
+}

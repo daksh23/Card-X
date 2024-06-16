@@ -10,8 +10,8 @@
             <a (click)="routeFunc(help)" [class.active]="isActive(help)">Help</a>
         </div>
         <div class="header-buttons">
-            <button class="btn login">Login</button>
-            <button class="btn get-started">Get Started</button>
+            <button class="btn login" (click)="routeFunc(login)" [class.active]="isActive(login)">Login</button>
+            <button class="btn get-started" (click)="routeFunc(register)" [class.active]="isActive(register)">Get Started</button>
         </div>
     </div>
 </header>
