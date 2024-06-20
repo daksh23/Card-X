@@ -1,6 +1,6 @@
 export interface FeaturesModel {
-    icon: string;
-    title: string;
-    description: string;
-  }
-  
+  feature_id: number;
+  icon: string;
+  title: string;
+  description: string;
+}

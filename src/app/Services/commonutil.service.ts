@@ -2,18 +2,21 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CommonutilService {
-  
-  constructor(private router:Router) { }
+  constructor(private router: Router) {}
 
- goToPageByUrl(value:string){
+  goToPageByUrl(value: string) {
     this.router.navigate([`/${value}`]);
- } 
+  }
 
- isActive(value:string):boolean {
-  return this.router.url.includes(value);    
-}
+  isActive(value: string): boolean {
+    return this.router.url.includes(value);
+  }
 
+  // Print any object in console log
+  printObjectValues(obj: any): string {
+    return JSON.stringify(obj, null, 2);
+  }
 }
