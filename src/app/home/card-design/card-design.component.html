@@ -2,8 +2,8 @@
     <h1>{{ title }}</h1>
     <div class="image-row">
       <div class="card" *ngFor="let card of cards">
-        <div class="person-name">{{ card.name }}</div>
-        <img [src]="card.image" alt="{{ card.name }}">
+        <div class="person-name">{{ card.designName }}</div>
+        <img [src]="card.image" alt="{{ card.designName }}">
       </div>
     </div>
     <button class="cta-button" (click)="toDesignPage()" [class.active]="isActive()">View More Design</button>

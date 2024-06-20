@@ -7,18 +7,18 @@
       </div>
     </div>
   
-    <div class="form-container">
-      <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" ngModel #email="ngModel" />
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" ngModel #password="ngModel" />
-        </div>
-        <button type="submit" class="login-cta-button">Login</button>
-      </form>
-    </div>
+    <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" ngModel #email="ngModel" />
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" ngModel #password="ngModel" />
+      </div>
+  
+      <button type="submit" class="login-cta-button">Login</button>
+    </form>
   </div>
   

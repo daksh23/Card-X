@@ -1,5 +1,8 @@
 export interface CardDesignModel {
-  name: string;
-  collection: string;
+  design_id:number;
+  designName:string;
   image: string;
+  collection: string;
+  dmyUserName: string;  
+  designAmount:number;
 }

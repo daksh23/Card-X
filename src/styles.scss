@@ -55,4 +55,18 @@ body {
 }
 
 
-// Validation
+// Loading screen:
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  text-align: center;
+
+  h3 {
+    font-size: 1.4em;
+    color: $light-asset-color;
+    margin: 0px;
+  }
+}

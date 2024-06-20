@@ -13,7 +13,7 @@ export class CardDesignService {
   retrieveCardDesigns() : Observable<CardDesignModel[]> {
     console.log("Service class :: CardDesignService :: " + "retrieveCardDesigns method :: ");
 
-   return this.httpClient.get<CardDesignModel[]>('./assets/constants/CardDesigns.json');
+   return this.httpClient.get<CardDesignModel[]>('http://localhost:8080/cardx/rest/v1/card/designs');
   }
 
 

@@ -27,6 +27,8 @@ export class CardDesignComponent implements OnInit {
     console.log("CardDesignComponent  :: " + "getTheCardDesigns method :: ");
 
     this.CardDesignService.retrieveCardDesigns().subscribe(data => {
+      console.log("Data direct from api :: ",data);
+      
       this.cards = data.splice(0, 3);
     });
   }

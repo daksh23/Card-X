@@ -36,8 +36,8 @@
     <div class="weekly-design-box">
       <div class="image-row">
         <div class="card" *ngFor="let card of cards">
-          <div class="person-name">{{ card.name }}</div>
-          <img [src]="card.image" alt="{{ card.name }}" />
+          <div class="person-name">{{ card.designName }}</div>
+          <img [src]="card.image" alt="{{ card.designName }}" />
         </div>
       </div>
     </div>
@@ -47,12 +47,12 @@
 
   <div class="all-time-design-section">
     <div class="weekly-section">
-      <h1>Our Weekly Designs</h1>
+      <h1>Our All Time Designs</h1>
       <div class="weekly-design-box">
         <div class="image-row">
           <div class="card" *ngFor="let card of allTimeCards">
-            <div class="person-name">{{ card.name }}</div>
-            <img [src]="card.image" alt="{{ card.name }}" />
+            <div class="person-name">{{ card.designName }}</div>
+            <img [src]="card.image" alt="{{ card.designName }}" />
           </div>
         </div>
       </div>
