@@ -36,8 +36,12 @@ export class DesignsComponent {
   goToHome(){
     this.CommonutilService.goToPageByUrl('home');
   }
-   
-  isActive(){
-    this.CommonutilService.isActive("home");
+
+  goToAllDesigns(){
+    this.CommonutilService.goToPageByUrl('all-designs');
+  }
+  
+  isActive(value:string){
+    this.CommonutilService.isActive(value);
   }
 }

@@ -6,6 +6,9 @@
         Explore stunning templates and unleash your creativity. Generate unique
         designs effortlessly with our AI-powered tool. New designs every week!
       </p>
+      <div class="button-container">
+        <button class="button" style="color: black;" (click)="goToAllDesigns()" [class.active]="isActive('all-designs')">Expore All Designs</button>
+      </div>
     </div>
   </div>
 
@@ -24,7 +27,7 @@
         can be with the power of AI!
       </p>
       <div class="button-container">
-        <button class="button" (click)="goToAi()">GO TO AI</button>
+        <button class="button" (click)="goToAi()" [class.active]="isActive('card-ai')">GO TO AI</button>
       </div>
     </div>
   </div>
@@ -60,7 +63,7 @@
   </div>
 
   <div class="button-container">
-    <button class="button" (click)="goToHome()" [class.active]="isActive()">
+    <button class="button" (click)="goToHome()" [class.active]="isActive('home')">
       GO TO HOME
     </button>
   </div>

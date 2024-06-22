@@ -25,6 +25,7 @@ import { CardAIComponent } from './card-ai/card-ai.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AllDesignsComponent } from './all-designs/all-designs.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     CardAIComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    AllDesignsComponent
   ],
   imports: [
     BrowserModule,
