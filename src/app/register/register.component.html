@@ -9,161 +9,218 @@
 
   <!-- Form Section -->
   <div class="form-container">
-    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" *ngIf="response == null">
       
       <!-- Profile Info -->
-      <div class="form-box" ngModelGroup="personalInfo">
+      <div class="form-box" formGroupName="personalInfo" *ngIf="page == 1">
         <h2>Profile Information</h2>
         <div class="form-row">
           <div class="form-group">
-            <label for="firstName">First Name <span >*</span></label>
-            <input type="text" id="firstName" name="firstName" ngModel required #firstName="ngModel" />
+            <label for="firstName">First Name <span>*</span></label>
+            <input type="text" id="firstName" formControlName="firstName" required />
           </div>
           <div class="form-group">
             <label for="lastName">Last Name <span>*</span></label>
-            <input type="text" id="lastName" name="lastName" ngModel required #lastName="ngModel" />
+            <input type="text" id="lastName" formControlName="lastName" required />
           </div>
         </div>
 
         <div class="form-group">
           <label for="email">Email <span>*</span></label>
-          <input type="email" id="email" name="email" ngModel required #email="ngModel" />
+          <input type="email" id="email" formControlName="email" required />
         </div>
 
         <div class="form-group">
           <label for="phone">Phone Number <span>*</span></label>
-          <input type="tel" id="phone" name="phone" ngModel required #phone="ngModel" />
+          <input type="tel" id="phone" formControlName="phone" required />
         </div>
 
         <div class="form-group">
           <label for="bio">Bio <span>*</span></label>
-          <textarea id="bio" name="bio" rows="5" ngModel required #bio="ngModel"></textarea>
+          <textarea id="bio" formControlName="bio" rows="5" required></textarea>
         </div>
 
         <div class="form-group">
-          <label for="image">Upload Image </label>
-          <input type="file" id="image" name="image" (change)="onFileChange($event)" />
+          <label for="image">Upload Profile</label>
+          <input type="file" id="image" (change)="onFileChange($event)" />
         </div>
 
         <!-- Address -->
         <h2>Address</h2>
-        <div class="form-row" ngModelGroup="address">
+        <div class="form-row" formGroupName="address">
           <div class="form-group">
-            <label for="country">Country  <span>*</span></label>
-            <input type="text" id="country" name="country" ngModel required #country="ngModel" />
+            <label for="country">Country <span>*</span></label>
+            <input type="text" id="country" formControlName="country" required />
           </div>
           <div class="form-group">
-            <label for="state">State  <span>*</span></label>
-            <input type="text" id="state" name="state" ngModel required #state="ngModel" />
+            <label for="state">Province <span>*</span></label>
+            <input type="text" id="state" formControlName="state" required />
           </div>
           <div class="form-group">
-            <label for="city">City  <span>*</span></label>
-            <input type="text" id="city" name="city" ngModel required #city="ngModel" />
+            <label for="city">City <span>*</span></label>
+            <input type="text" id="city" formControlName="city" required />
           </div>
         </div>
 
         <!-- Credentials -->
         <h2>Credentials</h2>
-        <div class="form-row" ngModelGroup="credentials">
+        <div class="form-row" formGroupName="credentials">
           <div class="form-group">
             <label for="password">Create a password <span>*</span></label>
-            <input type="password" id="password" name="password" ngModel required #password="ngModel" />
+            <input type="password" id="password" formControlName="password" required />
           </div>
           <div class="form-group">
             <label for="confirmPassword">Confirm password <span>*</span></label>
-            <input type="password" id="confirmPassword" name="confirmPassword" ngModel required #confirmPassword="ngModel" />
+            <input type="password" id="confirmPassword" formControlName="confirmPassword" required />
+
+             <small *ngIf="registerForm.get('personalInfo.credentials.confirmPassword')?.hasError('matching') 
+                      &&  registerForm.get('personalInfo.credentials.confirmPassword')?.touched">
+              <span class="invalid-field">Passwords do not match</span>
+            </small>
+
           </div>
         </div>
+
+        <button class="cta-next" (click)="nextPage()" [disabled]="!registerForm.get('personalInfo')?.valid"> Next </button>
+      </div>
+
+      <!-- Social Media -->  
+      <div class="form-box" formGroupName="socialMedia"  *ngIf="page == 2">
+        <h2>Social Media</h2>
+        <div class="form-group">
+          <label for="instagram"> Instagram *</label>
+          <input type="text" id="instagram" formControlName="instagram" />
+          <small *ngIf="registerForm.get('socialMedia.instagram')?.invalid && registerForm.get('socialMedia.instagram')?.touched">
+            <span class="invalid-field">INVALID URL</span>
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="x"> X (Twitter) *</label>
+          <input type="text" id="x" formControlName="x" />
+          <small *ngIf="registerForm.get('socialMedia.x')?.invalid && registerForm.get('socialMedia.x')?.touched">
+            <span class="invalid-field">INVALID URL</span>
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="linkedIn"> LinkedIn *</label>
+          <input type="text" id="linkedIn" formControlName="linkedIn" />
+          <small *ngIf="registerForm.get('socialMedia.linkedIn')?.invalid && registerForm.get('socialMedia.linkedIn')?.touched">
+            <span class="invalid-field">INVALID URL</span>
+          </small>
+        </div>
+
+        <button class="cta-next" (click)="nextPage()" [disabled]="!registerForm.get('socialMedia')?.valid"> Next </button>
       </div>
 
       <!-- Education -->
-      <div class="form-box" ngModelGroup="education" >
+      <div class="form-box" formArrayName="education"  *ngIf="page == 3">
         <h2>Education</h2>
-        <div *ngFor="let edu of educationControls; let i = index" [ngModelGroup]="'education-' + i">
+        <div *ngFor="let edu of educationControls.controls; let i = index" [formGroupName]="i">
           <div class="form-row">
             <div class="form-group">
               <label for="study">Field of study</label>
-              <input type="text" id="study" name="study" ngModel #study="ngModel" />
+              <input type="text" id="study" formControlName="study" />
             </div>
             <div class="form-group">
-              <label for="current" style="text-align: center;">Current</label>
-              <input type="checkbox" id="current" name="current" ngModel #current="ngModel" />
+              <label for="current" style="text-align: center">Current</label>
+              <input type="checkbox" id="current" formControlName="current" />
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="eduStart">Start Date</label>
-              <input type="date" id="eduStart" name="eduStart" ngModel #eduStart="ngModel" />
+              <input type="date" id="eduStart" formControlName="eduStart" />
             </div>
             <div class="form-group">
               <label for="eduEnd">End Date</label>
-              <input type="date" id="eduEnd" name="eduEnd" ngModel #eduEnd="ngModel" />
+              <input type="date" id="eduEnd" formControlName="eduEnd" />
             </div>
           </div>
 
           <div class="form-group">
             <label for="university">University</label>
-            <input type="text" id="university" name="university" ngModel #university="ngModel" />
+            <input type="text" id="university" formControlName="university" />
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="uniCountry">Country</label>
-              <input type="text" id="uniCountry" name="uniCountry" ngModel #uniCountry="ngModel" />
+              <input type="text" id="uniCountry" formControlName="uniCountry" />
             </div>
             <div class="form-group">
               <label for="uniState">Province</label>
-              <input type="text" id="uniState" name="uniState" ngModel #uniState="ngModel" />
+              <input type="text" id="uniState" formControlName="uniState" />
             </div>
           </div>
 
-          <button *ngIf="educationControls.length > 1" type="button" class="remove-add-cta-button" (click)="removeEducation(i)">Remove</button>
+          <button *ngIf="educationControls.length > 1" type="button" class="remove-add-cta-button" (click)="removeEducation(i)">
+            Remove
+          </button>
         </div>
-        <button type="button" class="remove-add-cta-button" (click)="addEducation()">Add Education</button>
+        <button type="button" class="remove-add-cta-button" (click)="addEducation()">
+          Add Education
+        </button>
+
+        <button class="cta-next" (click)="nextPage()"> Next </button>
+
       </div>
-      
+
       <!-- Experience -->
-      <div class="form-box" ngModelGroup="experience">
+      <div class="form-box" formArrayName="experience"  *ngIf="page == 4">
         <h2>Experience</h2>
-        <div *ngFor="let exp of experienceControls; let j = index" [ngModelGroup]="'experience-' + j">
+        <div *ngFor="let exp of experienceControls.controls; let j = index" [formGroupName]="j">
           <div class="form-row">
             <div class="form-group">
               <label for="job">Job Title</label>
-              <input type="text" id="job" name="job" ngModel #job="ngModel" />
+              <input type="text" id="job" formControlName="job" />
             </div>
             <div class="form-group">
               <label for="present">Present</label>
-              <input type="checkbox" id="present" name="present" ngModel #present="ngModel" />
+              <input type="checkbox" id="present" formControlName="present" />
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="exStart">Start Date</label>
-              <input type="date" id="exStart" name="exStart" ngModel #exStart="ngModel" />
+              <input type="date" id="exStart" formControlName="exStart" />
             </div>
             <div class="form-group">
               <label for="exEnd">End Date</label>
-              <input type="date" id="exEnd" name="exEnd" ngModel #exEnd="ngModel" />
+              <input type="date" id="exEnd" formControlName="exEnd" />
             </div>
           </div>
 
           <div class="form-group">
             <label for="companyName">Company Name</label>
-            <input type="text" id="companyName" name="companyName" ngModel #companyName="ngModel" />
+            <input type="text" id="companyName" formControlName="companyName" />
           </div>
 
-          <button *ngIf="experienceControls.length > 1" type="button" class="remove-add-cta-button" (click)="removeExperience(j)">Remove</button>
+          <button *ngIf="experienceControls.length > 1" type="button" class="remove-add-cta-button" (click)="removeExperience(j)">
+            Remove
+          </button>
         </div>
-        <button type="button" class="remove-add-cta-button" (click)="addExperience()">Add Experience</button>
+        <button type="button" class="remove-add-cta-button" (click)="addExperience()">
+          Add Experience
+        </button>
+
+        <button class="cta-next" (click)="nextPage()" *ngIf="page !== 4"> Next </button>
+
       </div>
-
+      
       <!-- Submit Button -->
-      <button type="submit" class="cta-button" [disabled]="!registerForm.valid">
-        Register
-      </button>
-
+      <button type="submit" class="cta-button" [disabled]="!registerForm.valid">Register</button>
     </form>
+    <div class="centered-box" *ngIf="response?.complete != null && response?.complete == 'Registration Completed.'">
+      <mat-icon class="green_email" aria-hidden="false" aria-label="Example home icon" fontIcon="email"></mat-icon>
+      Registration Completed. Mail Sent!
+      <button class="center-button" (click)="routeFunc(login)" [class.active]="isActive(login)">LOGIN</button>
+
+    </div>
+    <div class="centered-box"  *ngIf="response?.error != null && response?.error == 'Registration Fail.'">
+      Something went wrong, please try after some time. Than you !
+      <button class="center-button" (click)="routeFunc(home)" [class.active]="isActive(home)">HOME</button>
+    </div>
   </div>
 </div>

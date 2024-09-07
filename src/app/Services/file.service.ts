@@ -13,7 +13,7 @@ export class FileService {
     formData.append('file', file);
   
     // need to change endpoint here
-    return this.http.post('/upload', formData);
+    return this.http.post('http://localhost:8080/cardx/rest/v1/card/upload', formData);
   }
 
 }
