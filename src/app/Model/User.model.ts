@@ -1,11 +1,12 @@
 import { AddressModal } from './Address.modal';
 import { EducationModal } from './Education.modal';
 import { ExperienceModal } from './Experience.modal';
-import { PersonalInfoModel } from './personalInfo.modal';
+import { PersonalInfoModel } from './PersonalInfo.modal';
+import { SocialMediaModal } from './SocialMedia.modal';
 
 export interface UserModel {
   personalInfo: PersonalInfoModel[];
-  address: AddressModal[];
+  socialMedia: SocialMediaModal[];
   education: EducationModal[];
   experience: ExperienceModal[];
 }

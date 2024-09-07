@@ -20,7 +20,7 @@ import { FeatureListComponent } from './home/feature-list/feature-list.component
 import { FeaturesService } from './Services/features.service';
 import { CardDesignService } from './Services/card-design.service';
 import { CommonutilService } from './Services/commonutil.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardAIComponent } from './card-ai/card-ai.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -53,7 +53,8 @@ import { AllDesignsComponent } from './all-designs/all-designs.component';
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
-    FormsModule      
+    FormsModule,
+    ReactiveFormsModule 
   ],
   providers: [FeaturesService, CardDesignService, CommonutilService],
   bootstrap: [AppComponent]
