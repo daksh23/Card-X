@@ -13,8 +13,6 @@ export class HelpPageService {
   private httpClient = inject(HttpClient);
   features:HelpPageModal[] = [];
 
-  
-
   sendHelpPageData(helpPageModal:HelpPageModal): Observable<string> {
     console.log("HelpPageService :: " + "sendHelpPageData method :: ");
   

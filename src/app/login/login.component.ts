@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LoginModal } from '../Model/Login.modal';
+import { AuthenticationService } from '../Services/authentication.service';
+import { Router } from '@angular/router';
+import { ResponseModal } from '../Model/Response.modal';
+import { CommonutilService } from '../Services/commonutil.service';
 
 @Component({
   selector: 'app-login',
@@ -9,13 +13,60 @@ import { LoginModal } from '../Model/Login.modal';
 })
 export class LoginComponent {
 
-  loginDetails:LoginModal[] = [];
+  email:string = "";
+  password:string = "";
+  response?: ResponseModal;
+  token:string = "";
+  error:string = "";
+  
+  constructor(private authService: AuthenticationService, private router: Router, private commonutilService:CommonutilService) {}
 
   onSubmit(ngForm:NgForm){
     console.log("Login Form :: ", ngForm.value);
-    this.loginDetails = ngForm.value;
+    this.email = ngForm.value.email;
+    this.password = ngForm.value.password;
 
-    console.log("LoginDetails :: ", this.loginDetails);
-    
+    console.log("Login started after submit ::");
+
+    //Call login method
+    this.onLogin();
   }
+
+  onLogin(): void {
+    this.authService.loginAuth(this.email, this.password).subscribe(response => {
+        console.log('onLogin method :: ' + 'Login response ::', response);
+        
+        // Assuming the token is returned as a field in the response
+        const token = response.Token;
+        
+        if(response.Error){
+            this.error = response.Error;
+        }else{
+          this.token = response.Token;
+        }
+                                             
+        console.log('Login Response :: token=  ' + this.token + ' :: error= ' + this.error);
+
+        if (token) {
+          // Store JWT token in localStorage or sessionStorage
+          localStorage.setItem('jwtToken', token);
+
+          this.router.navigate(['/dashboard']);
+        }
+
+    });
+  }
+
 }
+
+
+// next: (response) => {
+//   console.log('Login successful:', response);
+//   // this.response = this.commonutilService.mapResponse(response);
+
+//   // Redirect to a secure route after successful login
+//   this.router.navigate(['/dashboard']);
+// },
+// error: (err) => {
+//   console.error('Login failed:', err);
+// }
