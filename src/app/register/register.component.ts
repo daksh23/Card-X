@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
   userData: any = null;
   page:number = 1;
   home:string = 'home';
+  register:string = 'register';
   login:string = "login";
 
   router:Router = inject(Router);

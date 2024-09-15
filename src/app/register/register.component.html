@@ -222,5 +222,15 @@
       Something went wrong, please try after some time. Than you !
       <button class="center-button" (click)="routeFunc(home)" [class.active]="isActive(home)">HOME</button>
     </div>
+    <div class="centered-box"  *ngIf="response?.error != null && response?.error == 'Registration Fail because of Email.'">
+        Registration Fail because of Email, please try after some time. Than you!
+      <button class="center-button" (click)="routeFunc(home)" [class.active]="isActive(home)">HOME</button>
+    </div>
+
+    <div class="centered-box"  *ngIf="response?.error != null && response?.error == 'Registration Fail because of passwords not matched.'">
+      Registration Failed because of passwords not matched, please use same passwords. Than you!
+    <button class="center-button" (click)="routeFunc(register)" [class.active]="isActive(register)">Register</button>
+  </div>
+
   </div>
 </div>
