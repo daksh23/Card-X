@@ -1,0 +1,16 @@
+<div class="setting-dialog-container">
+    <mat-dialog-content>
+        <div class="header-row">
+            <h2>Settings</h2>
+            <button mat-icon-button class="close-btn" (click)="close()"> x </button>
+        </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <div class="setting-buttons">
+            <button class="btn logout" (click)="changePassword()">Change Password</button> 
+            <span>  &nbsp;  </span>
+            <button class="btn changePassword" (click)="logout()">Logout</button>    
+        </div> 
+    </mat-dialog-actions>
+</div>

@@ -26,6 +26,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AllDesignsComponent } from './all-designs/all-designs.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { SettingDialogComponent } from './setting-dialog/setting-dialog.component';
+import { ChangePasswordComponent } from './setting-dialog/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ import { AllDesignsComponent } from './all-designs/all-designs.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    AllDesignsComponent
+    AllDesignsComponent,
+    SettingDialogComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,8 @@ import { AllDesignsComponent } from './all-designs/all-designs.component';
     MatIconModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [FeaturesService, CardDesignService, CommonutilService],
   bootstrap: [AppComponent]

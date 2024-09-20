@@ -56,17 +56,4 @@ export class LoginComponent {
 
     });
   }
-
 }
-
-
-// next: (response) => {
-//   console.log('Login successful:', response);
-//   // this.response = this.commonutilService.mapResponse(response);
-
-//   // Redirect to a secure route after successful login
-//   this.router.navigate(['/dashboard']);
-// },
-// error: (err) => {
-//   console.error('Login failed:', err);
-// }
