@@ -17,4 +17,10 @@ export class BannerComponent {
   isActive(){
     this.commonutilService.isActive('register');
   }
+
+  // Check if the user is logged in
+  isLoggedIn(): boolean {
+    return this.commonutilService.isLoggedIn();
+  }
+  
 }

@@ -1,29 +1,28 @@
 <div class="login-page">
-    <!-- Banner Section -->
-    <div class="banner">
-      <div class="banner-content">
-        <h1>Welcome Back!</h1>
-        <p>Secure access to your personalized dashboard.</p>
-      </div>
-    </div>
-  
-    <div class="form-container">
-      <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
-        <div class="form-box">
-          <div class="form-group">
-            <label for="email">Email<span>*</span></label>
-            <input type="email" id="email" name="email" ngModel #email="ngModel" />
-          </div>
-    
-          <div class="form-group">
-            <label for="password">Password<span>*</span></label>
-            <input type="password" id="password" name="password" ngModel #password="ngModel" />
-          </div>
-    
-          <button type="submit" class="login-cta-button">Login</button>
-        </div>
-        <div *ngIf="error != null"> Invalid Email or Password, Please try again! </div>
-      </form>
+  <!-- Banner Section -->
+  <div class="banner">
+    <div class="banner-content">
+      <h1>Welcome Back!</h1>
+      <p>Secure access to your personalized dashboard.</p>
     </div>
   </div>
+
+  <div class="form-container">
+    <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+      <div class="form-box">
+        <div class="form-group">
+          <label for="email">Email<span>*</span></label>
+          <input type="email" id="email" name="email" ngModel #email="ngModel" />
+        </div>
   
+        <div class="form-group">
+          <label for="password">Password<span>*</span></label>
+          <input type="password" id="password" name="password" ngModel #password="ngModel" />
+        </div>
+  
+        <button type="submit" class="login-cta-button">Login</button>
+      </div>
+      <div *ngIf="error != null && error != ''"> Invalid Email or Password, Please try again! </div>
+    </form>
+  </div>
+</div>

@@ -19,7 +19,7 @@ export class LoginComponent {
   token:string = "";
   error:string = "";
   
-  constructor(private authService: AuthenticationService, private router: Router, private commonutilService:CommonutilService) {}
+  constructor(private authService: AuthenticationService, private commonutilService:CommonutilService) {}
 
   onSubmit(ngForm:NgForm){
     console.log("Login Form :: ", ngForm.value);
@@ -50,23 +50,11 @@ export class LoginComponent {
         if (token) {
           // Store JWT token in localStorage or sessionStorage
           localStorage.setItem('jwtToken', token);
+          localStorage.setItem('email', this.email);
 
-          this.router.navigate(['/dashboard']);
+          this.commonutilService.goToPageByUrl('/dashboard');
         }
 
     });
   }
-
 }
-
-
-// next: (response) => {
-//   console.log('Login successful:', response);
-//   // this.response = this.commonutilService.mapResponse(response);
-
-//   // Redirect to a secure route after successful login
-//   this.router.navigate(['/dashboard']);
-// },
-// error: (err) => {
-//   console.error('Login failed:', err);
-// }
