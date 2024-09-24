@@ -22,11 +22,12 @@ export class AuthenticationService {
       );
   }
 
-  // // Method to log out the user
-  // logout(): void {
-  //   // Remove token from localStorage or sessionStorage
-  //   localStorage.removeItem('jwtToken');
-  // }
+  // Method to log out the user
+  logout(): void {
+    // Remove token from localStorage or sessionStorage
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('email');
+  }
 
   // // Check if the user is logged in
   // isLoggedIn(): boolean {

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { SocialMediaModal } from '../Model/SocialMedia.modal';
 
 @Injectable({
@@ -57,5 +57,23 @@ export class RegisterService {
 
     return transformedData;
   }
-  
+
+  changePassword(currentPassword:string, newPassword:string, confirmPassword:string, email:string | null): Observable<any> {
+    const headers = new HttpHeaders(
+      { 
+        'Content-Type': 'application/json',  
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials' : 'true',
+        'Access-Control-Max-Age': '1800',
+      });
+
+    const body = { currentPassword, newPassword, confirmPassword, email };
+    
+    return this.httpClient.post<any>("http://localhost:8080/cardx/rest/v1/user/changePassword", body, { headers }).pipe(map(response => {
+      console.log("changePassword method :: " + "changePassword  Response:: " + response);
+      return response;
+    })
+  );
+  }
+
 }
