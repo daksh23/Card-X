@@ -29,10 +29,10 @@ export class AuthenticationService {
     localStorage.removeItem('email');
   }
 
-  // // Check if the user is logged in
-  // isLoggedIn(): boolean {
-  //   return !!localStorage.getItem('jwtToken');
-  // }
+  // Check if the user is logged in
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('jwtToken');
+  }
 
   // // Get the token
   // getToken(): string | null {

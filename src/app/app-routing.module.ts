@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AllDesignsComponent } from './all-designs/all-designs.component';
+import { AuthGuardServiceService } from './guards/auth.guard';
 
 const routes: Routes = [
   { path:'home', redirectTo:'', pathMatch:'full' },
@@ -23,12 +24,15 @@ const routes: Routes = [
   { path:'card-ai', component:CardAIComponent },
   { path:'login', component:LoginComponent },
   { path:'register', component:RegisterComponent },
-  { path:'dashboard', component:DashboardComponent },
+  { path:'dashboard', component:DashboardComponent , canActivate:[AuthGuardServiceService]},
   { path:'**', component:NotFoundComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers:[
+    AuthGuardServiceService
+  ]
 })
 export class AppRoutingModule { }
