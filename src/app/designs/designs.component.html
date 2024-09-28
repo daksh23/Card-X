@@ -6,39 +6,19 @@
         Explore stunning templates and unleash your creativity. Generate unique
         designs effortlessly with our AI-powered tool. New designs every week!
       </p>
-      <div class="button-container">
-        <button class="button" style="color: black;" (click)="goToAllDesigns()" [class.active]="isActive('all-designs')">Expore All Designs</button>
+      <div *ngIf="!isLoggedIn()" class="button-container">
+        <button class="button" style="color: black;" (click)="routeFunc('register')" [class.active]="isActive('register')">
+          Get Started
+        </button>
       </div>
     </div>
   </div>
-
-  <div class="card-design-text-container">
-    <div class="card-design-text">
-      <h1>Create Your Own Design</h1>
-      <h3>Revolutionize Your Card Design with AI</h3>
-      <p>
-        Welcome to the future of card design! Our advanced AI technology makes
-        it easy to create beautiful, personalized designs for any type of
-        physical card you need. Whether it's business cards, greeting cards,
-        invitations, or anything else, our AI generates unique and eye-catching
-        designs just for you. No more boring templates—just tell us what you
-        want, and our AI will handle the rest. It's fast, creative, and tailored
-        to your style. Try it today and see how simple and fun designing cards
-        can be with the power of AI!
-      </p>
-      <div class="button-container">
-        <button class="button" (click)="goToAi()" [class.active]="isActive('card-ai')">GO TO AI</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="center-line"></div>
 
   <div class="weekly-section">
     <h1>Our Weekly Designs</h1>
     <div class="weekly-design-box">
       <div class="image-row">
-        <div class="card" *ngFor="let card of cards">
+        <div class="card" *ngFor="let card of cards" (click)="test(card)">
           <div class="person-name">{{ card.designName }}</div>
           <img [src]="card.image" alt="{{ card.designName }}" />
         </div>
@@ -62,9 +42,35 @@
     </div>
   </div>
 
+  <div class="center-line"></div>
+
+  <div class="card-design-text-container">
+    <div class="card-design-text">
+      <h1>Create Your Own Design</h1>
+      <h3>Revolutionize Your Card Design with AI</h3>
+      <p>
+        Welcome to the future of card design! Our advanced AI technology makes
+        it easy to create beautiful, personalized designs for any type of
+        physical card you need. Whether it's business cards, greeting cards,
+        invitations, or anything else, our AI generates unique and eye-catching
+        designs just for you. No more boring templates—just tell us what you
+        want, and our AI will handle the rest. It's fast, creative, and tailored
+        to your style. Try it today and see how simple and fun designing cards
+        can be with the power of AI!
+      </p>
+      <div class="button-container">
+        <button class="button" (click)="routeFunc('card-ai')" [class.active]="isActive('card-ai')">GO TO AI</button>
+        <span> &nbsp;</span>
+        <button class="button" (click)="routeFunc('home')" [class.active]="isActive('home')">
+          GO TO HOME
+        </button>
+      </div>
+    </div>
+  </div>
+<!-- 
   <div class="button-container">
     <button class="button" (click)="goToHome()" [class.active]="isActive('home')">
       GO TO HOME
     </button>
-  </div>
+  </div> -->
 </div>
