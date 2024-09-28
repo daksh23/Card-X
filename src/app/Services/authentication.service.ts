@@ -34,9 +34,9 @@ export class AuthenticationService {
     return !!localStorage.getItem('jwtToken');
   }
 
-  // // Get the token
-  // getToken(): string | null {
-  //   return localStorage.getItem('jwtToken');
-  // }
+  // Get the token
+  getToken(): string | null {
+    return localStorage.getItem('jwtToken');
+  }
 
 }

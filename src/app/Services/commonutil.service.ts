@@ -37,9 +37,4 @@ export class CommonutilService {
   
     return response;
   }
-
-  // Check if the user is logged in
-  isLoggedIn(): boolean {
-    return !localStorage.getItem('jwtToken');
-  }
 }

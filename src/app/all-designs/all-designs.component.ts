@@ -35,4 +35,8 @@ export class AllDesignsComponent {
     this.commonutilService.isActive(value);
   }
 
+  goToAi() {
+    this.commonutilService.goToPageByUrl('card-ai');
+  }
+
 }

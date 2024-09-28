@@ -10,7 +10,7 @@ export class AuthGuardServiceService implements CanActivate {
   
   private router:Router = inject(Router)
   private authenticationService:AuthenticationService = inject(AuthenticationService);
-  private isLoggedIn: boolean = false;
+  private isLoggedIn: boolean = this.authenticationService.isLoggedIn();
 
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 

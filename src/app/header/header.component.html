@@ -6,12 +6,18 @@
     </div>
     <div class="header-content">
         <div class="header-links">
-            <a (click)="routeFunc(cardDesign)" [class.active]="isActive(cardDesign)">Designs</a>
+
+            <!-- Switch Desigb Page routes based on login -->
+            <a *ngIf="!isLoggedIn()" (click)="routeFunc(cardDesign)" [class.active]="isActive(cardDesign)">Designs</a>
+            <a *ngIf="isLoggedIn()" (click)="routeFunc(allCardDesign)" [class.active]="isActive(allCardDesign)">Designs</a>
+
             <a (click)="routeFunc(features)" [class.active]="isActive(features)">Features</a>
             <a (click)="routeFunc(pricing)" [class.active]="isActive(pricing)">Prices</a>
             <a (click)="routeFunc(help)" [class.active]="isActive(help)">Help</a>
         </div>
-        <div class="header-buttons" *ngIf="isLoggedIn()">
+        
+        
+        <div class="header-buttons" *ngIf="!isLoggedIn()">
             <button
                 class="btn login"
                 (click)="routeFunc(login)"
@@ -22,7 +28,7 @@
                 [class.active]="isActive(register)">Get Started</button>
         </div>
 
-        <div class="header-buttons" *ngIf="!isLoggedIn()">
+        <div class="header-buttons" *ngIf="isLoggedIn()">
             
             <button
                 *ngIf="isDashboard"
