@@ -9,13 +9,15 @@ import { CommonutilService } from '../../Services/commonutil.service';
 export class BannerComponent {
 
   commonutilService:CommonutilService = inject(CommonutilService);
+  register:string = 'register';
+  order:string = 'order';
 
-  goToRegister() {
-    this.commonutilService.goToPageByUrl('register');
+   routeFunc(value:string){
+    this.commonutilService.goToPageByUrl(value);
   }
-
-  isActive(){
-    this.commonutilService.isActive('register');
+  
+  isActive(value:string):boolean {
+    return this.commonutilService.isActive(value);
   }
 
   // Check if the user is logged in

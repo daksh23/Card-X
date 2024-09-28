@@ -4,6 +4,10 @@
     <div class="banner-content">
       <h1>Register Now</h1>
       <p>Create your account and get started today. Discover the benefits and unlock your potential with us.</p>
+      <p class="already-account-login">
+        Are you part of cardX family, Already ?  
+        <a (click)="routeFunc(login)" [class.active]="isActive(login)">LOGIN</a> 
+      </p>
     </div>
   </div>
 

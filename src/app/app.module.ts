@@ -29,6 +29,7 @@ import { AllDesignsComponent } from './all-designs/all-designs.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SettingDialogComponent } from './setting-dialog/setting-dialog.component';
 import { ChangePasswordComponent } from './setting-dialog/change-password/change-password.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ChangePasswordComponent } from './setting-dialog/change-password/change
     DashboardComponent,
     AllDesignsComponent,
     SettingDialogComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

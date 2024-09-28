@@ -2,7 +2,9 @@
     <div class="banner-content">
       <h1>Elevate your digital identity with CardX</h1>
       <p>CardX is a digital business card that allows you to create, share, and manage all of your professional information in one place. No need for physical cards or endless updates.</p>
-      <button *ngIf="isLoggedIn()" class="cta-button" (click)="goToRegister()" [class.active]="isActive()">Get Started</button>
+      <button *ngIf="isLoggedIn()" class="cta-button" (click)="routeFunc(register)" [class.active]="isActive(register)">Get Started</button>
+      <span> &nbsp; </span>
+      <button *ngIf="!isLoggedIn()" class="cta-button" (click)="routeFunc(order)" [class.active]="isActive(order)">ORDER</button>
     </div>
   </div>
   
