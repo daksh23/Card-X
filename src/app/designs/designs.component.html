@@ -18,7 +18,7 @@
     <h1>Our Weekly Designs</h1>
     <div class="weekly-design-box">
       <div class="image-row">
-        <div class="card" *ngFor="let card of cards" (click)="test(card)">
+        <div class="card" *ngFor="let card of cards" (click)="cardSelected(card)">
           <div class="person-name">{{ card.designName }}</div>
           <img [src]="card.image" alt="{{ card.designName }}" />
         </div>
@@ -33,7 +33,7 @@
       <h1>Our All Time Designs</h1>
       <div class="weekly-design-box">
         <div class="image-row">
-          <div class="card" *ngFor="let card of allTimeCards">
+          <div class="card" *ngFor="let card of allTimeCards" (click)="cardSelected(card)">
             <div class="person-name">{{ card.designName }}</div>
             <img [src]="card.image" alt="{{ card.designName }}" />
           </div>

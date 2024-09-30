@@ -28,6 +28,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SettingDialogComponent } from './setting-dialog/setting-dialog.component';
 import { ChangePasswordComponent } from './setting-dialog/change-password/change-password.component';
+import { CardModelComponent } from './designs/card-model/card-model.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ChangePasswordComponent } from './setting-dialog/change-password/change
     RegisterComponent,
     DashboardComponent,
     SettingDialogComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    CardModelComponent
   ],
   imports: [
     BrowserModule,
