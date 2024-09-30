@@ -54,12 +54,13 @@ export class DesignsComponent implements OnInit {
 
     const dialogConfig = new MatDialogConfig();
 
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.data = {
-      cardDetails:value
-    }
-
-    this.dialog.open(CardModelComponent, dialogConfig);
+      dialogConfig.disableClose = true;
+      dialogConfig.autoFocus = true;
+      dialogConfig.data = {
+        cardDetails:value // Pass cardDetails into model
+      }
+  
+      // Open Dialog with Card Details
+      this.dialog.open(CardModelComponent, dialogConfig);
   }
 }

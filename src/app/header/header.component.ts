@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit{
       if (event instanceof NavigationEnd) {
         this.currentRoute = event.urlAfterRedirects;
         this.isDashboard = this.currentRoute === "/dashboard"; // Cache the result
-        console.log('In Header Active Path :: currentPath ::' + this.currentRoute + "this isDashboard :: " + this.isDashboard);
+        console.log('In Header Active Path :: currentPath ::' + this.currentRoute + " and this isDashboard :: " + this.isDashboard);
       }
     });
   }
