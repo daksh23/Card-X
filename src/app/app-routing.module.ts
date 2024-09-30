@@ -10,7 +10,6 @@ import { CardAIComponent } from './card-ai/card-ai.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AllDesignsComponent } from './all-designs/all-designs.component';
 import { authGuard } from './guards/auth.guard';
 import { OrderComponent } from './order/order.component';
 
@@ -20,7 +19,6 @@ const routes: Routes = [
   { path:'help', component:HelpPageComponent },
   { path:'features', component:FeaturesComponent },
   { path:'card-designs', component:DesignsComponent },
-  { path:'all-designs', component:AllDesignsComponent },
   { path:'pricing', component:PricingComponent },
   { path:'card-ai', component:CardAIComponent },
   { path:'login', component:LoginComponent },

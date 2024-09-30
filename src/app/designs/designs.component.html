@@ -6,11 +6,43 @@
         Explore stunning templates and unleash your creativity. Generate unique
         designs effortlessly with our AI-powered tool. New designs every week!
       </p>
-      <div class="button-container">
-        <button class="button" style="color: black;" (click)="goToAllDesigns()" [class.active]="isActive('all-designs')">Expore All Designs</button>
+      <div *ngIf="!isLoggedIn()" class="button-container">
+        <button class="button" style="color: black;" (click)="routeFunc('register')" [class.active]="isActive('register')">
+          Get Started
+        </button>
       </div>
     </div>
   </div>
+
+  <div class="weekly-section">
+    <h1>Our Weekly Designs</h1>
+    <div class="weekly-design-box">
+      <div class="image-row">
+        <div class="card" *ngFor="let card of cards" (click)="cardSelected(card)">
+          <div class="person-name">{{ card.designName }}</div>
+          <img [src]="card.image" alt="{{ card.designName }}" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="center-line"></div>
+
+  <div class="all-time-design-section">
+    <div class="weekly-section">
+      <h1>Our All Time Designs</h1>
+      <div class="weekly-design-box">
+        <div class="image-row">
+          <div class="card" *ngFor="let card of allTimeCards" (click)="cardSelected(card)">
+            <div class="person-name">{{ card.designName }}</div>
+            <img [src]="card.image" alt="{{ card.designName }}" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="center-line"></div>
 
   <div class="card-design-text-container">
     <div class="card-design-text">
@@ -27,44 +59,18 @@
         can be with the power of AI!
       </p>
       <div class="button-container">
-        <button class="button" (click)="goToAi()" [class.active]="isActive('card-ai')">GO TO AI</button>
+        <button class="button" (click)="routeFunc('card-ai')" [class.active]="isActive('card-ai')">GO TO AI</button>
+        <span> &nbsp;</span>
+        <button class="button" (click)="routeFunc('home')" [class.active]="isActive('home')">
+          GO TO HOME
+        </button>
       </div>
     </div>
   </div>
-
-  <div class="center-line"></div>
-
-  <div class="weekly-section">
-    <h1>Our Weekly Designs</h1>
-    <div class="weekly-design-box">
-      <div class="image-row">
-        <div class="card" *ngFor="let card of cards">
-          <div class="person-name">{{ card.designName }}</div>
-          <img [src]="card.image" alt="{{ card.designName }}" />
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="center-line"></div>
-
-  <div class="all-time-design-section">
-    <div class="weekly-section">
-      <h1>Our All Time Designs</h1>
-      <div class="weekly-design-box">
-        <div class="image-row">
-          <div class="card" *ngFor="let card of allTimeCards">
-            <div class="person-name">{{ card.designName }}</div>
-            <img [src]="card.image" alt="{{ card.designName }}" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+<!-- 
   <div class="button-container">
     <button class="button" (click)="goToHome()" [class.active]="isActive('home')">
       GO TO HOME
     </button>
-  </div>
+  </div> -->
 </div>

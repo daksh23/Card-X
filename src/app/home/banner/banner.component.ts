@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonutilService } from '../../Services/commonutil.service';
+import { AuthenticationService } from 'src/app/Services/authentication.service';
 
 @Component({
   selector: 'app-banner',
@@ -8,9 +9,10 @@ import { CommonutilService } from '../../Services/commonutil.service';
 })
 export class BannerComponent {
 
-  commonutilService:CommonutilService = inject(CommonutilService);
   register:string = 'register';
   order:string = 'order';
+  private commonutilService:CommonutilService = inject(CommonutilService);
+  private authenticationService:AuthenticationService = inject(AuthenticationService);
 
    routeFunc(value:string){
     this.commonutilService.goToPageByUrl(value);
@@ -22,7 +24,7 @@ export class BannerComponent {
 
   // Check if the user is logged in
   isLoggedIn(): boolean {
-    return this.commonutilService.isLoggedIn();
+    return this.authenticationService.isLoggedIn();
   }
   
 }
