@@ -25,10 +25,10 @@ import { CardAIComponent } from './card-ai/card-ai.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AllDesignsComponent } from './all-designs/all-designs.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SettingDialogComponent } from './setting-dialog/setting-dialog.component';
 import { ChangePasswordComponent } from './setting-dialog/change-password/change-password.component';
+import { CardModelComponent } from './designs/card-model/card-model.component';
 
 @NgModule({
   declarations: [
@@ -48,9 +48,9 @@ import { ChangePasswordComponent } from './setting-dialog/change-password/change
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    AllDesignsComponent,
     SettingDialogComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    CardModelComponent
   ],
   imports: [
     BrowserModule,

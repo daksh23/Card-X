@@ -1,0 +1,25 @@
+<div class="card-model-container">
+    <mat-dialog-content>
+        <div class="card-model-header">
+            <h2>Selected Design - <span style="text-decoration: underline;">{{card.designName}}</span> </h2>
+            <button mat-icon-button class="close-btn" (click)="close()"> x </button>
+        </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <div class="selected-design-view">
+            <img [src]="card.image" alt="{{ card.designName }}">
+            <p>  {{ card.designType | uppercase }} </p>
+        </div>
+
+        <div class="design-model-buttons" *ngIf="isLoggedIn()">
+            <button class="btn login" (click)="routeFunc(order)" [class.active]="isActive(order)">Order</button> 
+        </div>
+
+        <div class="design-model-buttons" *ngIf="!isLoggedIn()">
+            <button class="btn login" (click)="routeFunc(login)" [class.active]="isActive(login)">Login</button> 
+                <span>  &nbsp;  </span>
+            <button class="btn register" (click)="routeFunc(register)" [class.active]="isActive(register)">Register</button>
+        </div> 
+    </mat-dialog-actions>
+</div>    

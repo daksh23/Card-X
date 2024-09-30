@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
+import { MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { CommonutilService } from '../Services/commonutil.service';
 

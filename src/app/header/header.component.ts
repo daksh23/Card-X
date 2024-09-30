@@ -4,6 +4,7 @@ import { CommonutilService } from '../Services/commonutil.service';
 import { SettingDialogComponent } from '../setting-dialog/setting-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogConfig } from '@angular/material/dialog';
+import { AuthenticationService } from '../Services/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,7 @@ export class HeaderComponent implements OnInit{
 
   features:string = 'features';
   cardDesign:string = 'card-designs';
+  allCardDesign:string = "all-designs";
   pricing:string = 'pricing';
   help:string = 'help';
   home:string = 'home';
@@ -25,6 +27,7 @@ export class HeaderComponent implements OnInit{
 
   private router:Router = inject(Router);
   private commonutilService:CommonutilService = inject(CommonutilService);
+  private authenticationService: AuthenticationService = inject(AuthenticationService);
   private dialog: MatDialog = inject(MatDialog);
 
   ngOnInit(): void {
@@ -33,7 +36,7 @@ export class HeaderComponent implements OnInit{
       if (event instanceof NavigationEnd) {
         this.currentRoute = event.urlAfterRedirects;
         this.isDashboard = this.currentRoute === "/dashboard"; // Cache the result
-        console.log('In Header Active Path :: currentPath ::' + this.currentRoute + "this isDashboard :: " + this.isDashboard);
+        console.log('In Header Active Path :: currentPath ::' + this.currentRoute + " and this isDashboard :: " + this.isDashboard);
       }
     });
   }
@@ -48,7 +51,7 @@ export class HeaderComponent implements OnInit{
 
   // Check if the user is logged in
   isLoggedIn(): boolean {
-    return this.commonutilService.isLoggedIn();
+    return this.authenticationService.isLoggedIn();
   }
 
   openSettingsModel(){

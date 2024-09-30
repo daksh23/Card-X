@@ -5,4 +5,5 @@ export interface CardDesignModel {
   collection: string;
   dmyUserName: string;  
   designAmount:number;
+  designType:string;
 }
