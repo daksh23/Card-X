@@ -1,0 +1,179 @@
+/* home-page.component.scss */
+@import "../../constants.scss";
+
+.order-page {
+  .banner {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    background: url("/assets/backgrounds/waves.png") repeat-x;
+    background-repeat: no-repeat;
+    background-size: 100% 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: $white-color;
+
+    .banner-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+  }
+
+  .order-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    .order-payment-option {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      h1 {
+        margin: 0 0 20px 0;
+        padding: 0;
+      }
+
+      p {
+        font-size: 1.2em;
+        margin: 20px 0 10px 0px;
+        padding: 0;
+        color: $light-asset-color;
+      }
+
+      .order-payment-option-button {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+
+        .cta-regular-button {
+          padding: 10px 20px;
+          font-size: 1em;
+          background-color: $white-color;
+          border: none;
+          color: $dark-asset-color;
+          transition: background-color 0.3s;
+          margin: 0 10px 0 10px;
+          border-bottom: 1px solid $extra-light-asset-color;
+        }
+
+        .cta-highlighed-button {
+          padding: 10px 20px;
+          font-size: 1em;
+          background-color: $extra-light-asset-color;
+          border: none;
+          color: $white-color;
+          margin: 10px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+      }
+    }
+
+    .order-design {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 0;
+
+      p {
+        font-size: 1.2em;
+        margin: 10px 0 20px 0px;
+        padding: 0;
+        color: $light-asset-color;
+      }
+
+      img {
+        border: 1px solid $extra-light-asset-color;
+        border-radius: 10px;
+        width: 800px;
+        max-width: 800px;
+        height: 500px;
+      }
+
+      .order-design-cta-button {
+        padding: 10px 20px;
+        margin: 20px;
+        font-size: 1em;
+        background-color: $dark-asset-color;
+        border: none;
+        color: $white-color;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+    }
+
+    .order-design-with-ai {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 0;
+
+      h1 {
+        margin: 0;
+        padding: 0;
+      }
+
+      p {
+        font-size: 1.2em;
+        margin: 20px 0 10px 0px;
+        padding: 0;
+        color: $light-asset-color;
+      }
+
+      .order-design-cta-button {
+        padding: 10px 20px;
+        margin: 20px;
+        font-size: 1em;
+        background-color: $disabled-color;
+        border: none;
+        color: $white-color;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+    }
+
+    .order-personal-information {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      p {
+        font-size: 1.2em;
+        margin: 10px 0 20px 0px;
+        padding: 0;
+        color: $light-asset-color;
+      }
+
+      .cta-button-proceed {
+        padding: 10px 20px;
+        font-size: 1em;
+        background-color: $dark-asset-color;
+        border: none;
+        margin: 0 0 20px 0;
+        color: $white-color;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+    }
+  }
+}

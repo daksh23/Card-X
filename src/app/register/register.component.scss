@@ -26,6 +26,20 @@
         p {
             font-size: 1.2em;
         }
+
+        .already-account-login{
+            font-size: 0.9em;
+            margin: 0px;
+
+            a{
+                font-size: 1.2em;
+                cursor: pointer;
+                font-weight: bold;
+                text-decoration: underline;
+                color: $extra-light-asset-color;
+                transition: color 0.3s ease;
+            }
+        }
     }
 
     .form-container {

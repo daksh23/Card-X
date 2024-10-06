@@ -9,15 +9,18 @@ import { AuthenticationService } from 'src/app/Services/authentication.service';
 })
 export class BannerComponent {
 
+  register:string = 'register';
+  orderDesign:string = 'card-designs';
+
   private commonutilService:CommonutilService = inject(CommonutilService);
   private authenticationService:AuthenticationService = inject(AuthenticationService);
 
-  goToRegister() {
-    this.commonutilService.goToPageByUrl('register');
+   routeFunc(value:string){
+    this.commonutilService.goToPageByUrl(value);
   }
-
-  isActive(){
-    this.commonutilService.isActive('register');
+  
+  isActive(value:string):boolean {
+    return this.commonutilService.isActive(value);
   }
 
   // Check if the user is logged in
