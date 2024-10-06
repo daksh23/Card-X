@@ -4,6 +4,6 @@
     <p>
       The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
     </p>
-    <button (click)="goHome()">Go to Home Page</button>
+    <button (click)="routeFunc(home)"  [class.active]="isActive(home)">Go to Home Page</button>
   </div>
   

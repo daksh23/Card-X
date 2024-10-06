@@ -30,6 +30,7 @@ import { SettingDialogComponent } from './setting-dialog/setting-dialog.componen
 import { ChangePasswordComponent } from './setting-dialog/change-password/change-password.component';
 import { OrderComponent } from './order/order.component';
 import { CardModelComponent } from './designs/card-model/card-model.component';
+import {TooltipPosition, MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { CardModelComponent } from './designs/card-model/card-model.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   providers: [FeaturesService, CardDesignService, CommonutilService],
   bootstrap: [AppComponent]

@@ -1,49 +1,53 @@
-<div class="order-page">
-    <!-- Banner Section -->
-    <div class="banner">
-      <div class="banner-content">
-        <h1>Order</h1>
-        <p>
-          Get your own customize and cool CardX, Today.
-        </p>
+<div *ngIf="isCameDirectly">
+    <app-not-found></app-not-found>
+</div>
+
+<div class="order-page" *ngIf='!isCameDirectly'>
+  <div class="banner">
+    <div class="banner-content">
+      <h1>Order</h1>
+      <p>Get your own customize and cool CardX, Today.</p>
+    </div>
+  </div>
+
+  <div class="order-container">
+    <div class="order-payment-option">
+      <h1>Place Your Order</h1>
+
+      <p>Selected Type of Card</p>
+
+      <div class="order-payment-option-button">
+        <button *ngFor="let cardType of totalDesignType" [ngClass]="'cta-' + (cardType === designTypeCond ? 'highlighed' : 'regular') + '-button'"> 
+           {{cardType | uppercase}} 
+          </button>
       </div>
     </div>
 
-    <div class="order-container">
-        <div class="order-payment-option">
-            <h1>Place Your Order</h1>
-            <p> Select Type of Card </p>
-            
-            <div class="order-payment-option-button">
+    <div class="center-line"></div>
 
-            <button class="cta-button "> Standard </button>
-            <span> | </span>
-            <button class="cta-button "> Advanced </button>
-            <span> | </span>
-            <button class="cta-button "> Premium </button>
-
-        </div>
-
-        <div class="center-line"></div>
-
-        </div>
-        
-        <div class="order-design">
-            <p> Select Your CardX Design </p>
-
-            <div class="order-design-list">
-                <!-- If advanced or premium -->
-            </div>
-            <button class="order-design-cta-button"> Customize Button </button>
-        </div>
-    
-        <div class="center-line"></div>
-
-
-        <div class="order-personal-information">
-            <p> Almost Completed </p>
-            <button class="cta-button-proceed"> Pay Now </button>
-        </div>
+    <div class="order-design">
+      <p>Selected CardX Design</p>
+      <img [src]="getCard?.image" alt="{{ getCard?.designName }}" />
+      <button class="order-design-cta-button" (click)="routeFunc(design)"> Change Your Design </button>
     </div>
-   
+
+    <div class="center-line"></div>
+
+    <div class="order-design-with-ai">
+      <h1>CardX Ai</h1>
+      <p>Elevate your CardX design with our AI, OR create new own design</p>
+      <button class="order-design-cta-button" 
+        matTooltip="AI is comming soon!"
+        (click)="routeFunc(ai)" 
+        [class.active]="isActive(ai)"> GO TO AI </button>
+    </div>
+
+    <div class="center-line"></div>
+
+    <div class="order-personal-information">
+      <h1>Almost There!</h1>
+      <p> Your Amount is : {{getCard?.designAmount}} </p>
+      <button class="cta-button-proceed">Pay Now</button>
+    </div>
   </div>
+</div>

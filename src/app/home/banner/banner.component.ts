@@ -10,7 +10,8 @@ import { AuthenticationService } from 'src/app/Services/authentication.service';
 export class BannerComponent {
 
   register:string = 'register';
-  order:string = 'order';
+  orderDesign:string = 'card-designs';
+
   private commonutilService:CommonutilService = inject(CommonutilService);
   private authenticationService:AuthenticationService = inject(AuthenticationService);
 
