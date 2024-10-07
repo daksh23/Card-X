@@ -26,6 +26,20 @@
     p {
       font-size: 1.2em;
     }
+
+    .already-account-register {
+      font-size: 0.9em;
+      margin: 0px;
+
+      a{
+          font-size: 1.2em;
+          cursor: pointer;
+          font-weight: bold;
+          text-decoration: underline;
+          color: $dark-bg-color;
+          transition: color 0.3s ease;
+      }
+  }
   }
 
 

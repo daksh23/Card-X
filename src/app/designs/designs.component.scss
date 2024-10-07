@@ -28,27 +28,6 @@
     }
   }
 
-  .card-design-text-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 600px;
-    margin: 20px auto;
-
-    .card-design-text {
-      text-align: center;
-      padding: 10px;
-    }
-
-    h3 {
-      color: $extra-light-asset-color;
-    }
-
-    p {
-      counter-reset: $light-asset-color;
-    }
-    
-  }
 }
 
 .button-container{

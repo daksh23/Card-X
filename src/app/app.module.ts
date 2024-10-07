@@ -31,6 +31,7 @@ import { ChangePasswordComponent } from './setting-dialog/change-password/change
 import { OrderComponent } from './order/order.component';
 import { CardModelComponent } from './designs/card-model/card-model.component';
 import {TooltipPosition, MatTooltipModule} from '@angular/material/tooltip';
+import { AiComponent } from './home/ai/ai.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {TooltipPosition, MatTooltipModule} from '@angular/material/tooltip';
     SettingDialogComponent,
     ChangePasswordComponent,
     OrderComponent,
-    CardModelComponent
+    CardModelComponent,
+    AiComponent
   ],
   imports: [
     BrowserModule,
