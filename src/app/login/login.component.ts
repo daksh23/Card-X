@@ -57,4 +57,12 @@ export class LoginComponent {
 
     });
   }
+  
+  routeFunc(value:string){
+    this.commonutilService.goToPageByUrl(value);
+  }
+  
+  isActive(value:string):boolean {
+    return this.commonutilService.isActive(value);
+  }
 }

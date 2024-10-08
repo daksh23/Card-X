@@ -14,3 +14,16 @@ export const authGuard: CanActivateFn = () => {
     return router.createUrlTree(['/login']);
   }
 };
+
+export const registerLoginGuard: CanActivateFn = () => {
+  const router = inject(Router);
+  const authService = inject(AuthenticationService);
+
+  const isLoggedIn = authService.isLoggedIn(); // Check if the user is logged in
+
+  if (isLoggedIn) {
+    return router.createUrlTree(['/dashboard']);
+  } else {
+    return true;
+  }
+};
