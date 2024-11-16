@@ -6,13 +6,15 @@ import { CommonutilService } from '../Services/commonutil.service';
 import { ValidateUrl } from '../Validators/url.validator';
 import { PasswordMatchValidator } from '../Validators/passwrod-match.validator';
 import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
   registerForm: FormGroup;
   response?: ResponseModal;
   userData: any = null;
@@ -20,11 +22,14 @@ export class RegisterComponent implements OnInit {
   home:string = 'home';
   register:string = 'register';
   login:string = "login";
-
+  filedata:any;
+  uploadResponse:ResponseModal | null = null;
   router:Router = inject(Router);
+  userName:any = '';
+  uploadProfilePhotoInd: boolean = true;
+  uploadProfilePhotoErrorMsg: string = 'Its us, not you, Profile photo not uploaded, please try after login';
 
-  CommonutilService:CommonutilService = inject(CommonutilService);
-
+  private http: HttpClient = inject(HttpClient);
 
   constructor(
     private fb: FormBuilder,
@@ -38,7 +43,7 @@ export class RegisterComponent implements OnInit {
         email: ['', [Validators.required, Validators.email]],
         phone: ['', Validators.required],
         bio: ['', Validators.required],
-        image: [''],
+        image: ['false'],
         address: this.fb.group({
           country: ['', Validators.required],
           state: ['', Validators.required],
@@ -63,9 +68,17 @@ export class RegisterComponent implements OnInit {
       education: this.fb.array([this.createEducationGroup()]),
       experience: this.fb.array([this.createExperienceGroup()])
     });
+    
+  }
+  
+  routeFunc(value:string){
+    this.commonutilService.goToPageByUrl(value);
+  }
+  
+  isActive(value:string):boolean {
+    return this.commonutilService.isActive(value);
   }
 
-  ngOnInit(): void {}
 
   nextPage(){
     if(this.page < 4) this.page ++;
@@ -120,36 +133,77 @@ export class RegisterComponent implements OnInit {
       this.experienceControls.removeAt(index);
     }
   }
+  
+  getEmailFromFormControl(){
+    let email = this.registerForm.get('personalInfo.email')?.value;
+    console.log("Component Register :: method getEmailFromFormControl :: Retrieved Email :: " + email);
+    return email;
+  }
 
   onSubmit(): void {
     if (this.registerForm.valid) {
       console.log(this.registerForm.value);
-      
+    
+      // After Profile image then submit the 
       this.userData = this.registerService.transformData(this.registerForm.value);
       this.sendData(JSON.stringify(this.userData, null, 2));
-      console.log('User Data:', JSON.stringify(this.userData, null, 2));
+      console.log('Component Register :: User Data:', JSON.stringify(this.userData, null, 2));
     }
   }
 
   sendData(userDetails: string): void {
     this.registerService.sendUserData(userDetails).subscribe(response => {
-      console.log('Response from API:', response);
+      console.log('Component Register:: Response from API:', response);
       this.response = this.commonutilService.mapResponse(response);
+
+      if(this.response.complete != null && this.uploadProfilePhotoInd){
+          // Upload Image if user selected
+          this.upload(this.userName);
+      }
+
     });
   }
 
   onFileChange(event: any): void {
-    const file = event.target.files[0];
-    if (file) {
-      console.log('User Profile:', file);
+    this.filedata = event.target.files[0];
+    
+    // Take email to create a userName for profile image
+    if (!this.filedata && this.getEmailFromFormControl() == null){
+      console.error('No file selected.');
+      this.uploadProfilePhotoInd = false;
+      return;
+    }else {
+        // set username as profile image name for users
+        this.userName = this.commonutilService.getUserName(this.getEmailFromFormControl());
+        if(this.userName == null || this.userName == ''){
+          console.error('Component Register :: No useName found ::');
+          this.uploadProfilePhotoInd = false;
+          return;
+        }
     }
   }
 
-  routeFunc(value:string){
-    this.CommonutilService.goToPageByUrl(value);
-  }
+  upload(userName:any) {
+    console.log("Component Register :: method Upload :: " + "with userName :: " + userName);
+      
+    const myFormData = new FormData();
+    myFormData.append('file', this.filedata);
+    myFormData.append('fileName', userName);
+
+    const headers = new HttpHeaders({
+      Accept: 'application/json'
+    });
+    
+    /* Image Post Request */
+    this.http.post('http://localhost:8081/cardx/rest/v1/upload', myFormData, {headers, responseType: 'text'}).subscribe((data: any) => {
+      console.log("ProfileComponent :: Upload method :: " +data);
   
-  isActive(value:string):boolean {
-    return this.CommonutilService.isActive(value);
+      this.uploadResponse = this.commonutilService.mapResponse(data);
+      
+      if(this.uploadResponse.error != null){
+        this.uploadProfilePhotoInd = false;
+      }
+
+    });  
   }
 }

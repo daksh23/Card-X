@@ -15,7 +15,7 @@ export class AuthenticationService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const body = { email, password };
 
-    return this.httpClient.post<any>("http://localhost:8080/cardx/rest/v1/user/login", body, { headers }).pipe(map(response => {
+    return this.httpClient.post<any>("http://localhost:8081/cardx/rest/v1/user/login", body, { headers }).pipe(map(response => {
           console.log("loginAuth method :: " + "login token response :: " + response);
           return response;
         })

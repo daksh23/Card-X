@@ -37,4 +37,18 @@ export class CommonutilService {
   
     return response;
   }
+
+
+  getUserName(email:any) : string | null {
+    console.log("Component CommonutilService :: Method getUserName :: parameter as email :: " + email);
+
+    if(email == null || email == ''){
+        return null;
+    }
+
+    let numArray = email.split("@");
+    console.log("UserName :: " + numArray[0]);
+    return numArray[0];
+  }
+
 }

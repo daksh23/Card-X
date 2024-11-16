@@ -1,0 +1,110 @@
+<div class="profile-container">
+  <!-- <h1> Profile </h1> -->
+
+  <div class="profile-box">
+    <div class="profile-user-details">
+      <img src="{{ defaultUrl }}" />
+
+      <p class="errorMessage" *ngIf="uploadResponse?.error != undefined">
+        {{ this.uploadResponse?.error }}
+      </p>
+      <input #fileInput type="file" name="myFile" (change)="fileEvent($event)" style="display: none" />
+      <button type="submit" class="profile-user-button" (click)="fileInput.click()">
+        Upload
+      </button>
+
+      <h3>
+        {{ userDetails?.personalInfo?.firstName }}
+        {{ userDetails?.personalInfo?.lastName }}
+      </h3>
+      <p>
+        {{ "@" + userDetails?.personalInfo?.userName }} |
+        {{ userDetails?.personalInfo?.email }} |
+        {{ userDetails?.personalInfo?.phone }}
+      </p>
+      <p>
+        {{ userDetails?.personalInfo?.address?.city }},
+        {{ userDetails?.personalInfo?.address?.state }},
+        {{ userDetails?.personalInfo?.address?.country }}
+      </p>
+
+      <div class="profile-user-details-social-media">
+        <button class="btn" (click)="openLink(userDetails?.socialMedia?.linkedIn)">
+          <img src="assets/socialmedia/linkedin.png" />
+        </button>
+        <span> &nbsp; &nbsp;</span>
+        <button class="btn" (click)="openLink(userDetails?.socialMedia?.x)">
+          <img src="assets/socialmedia/x.png" />
+        </button>
+        <span> &nbsp; &nbsp; </span>
+        <button class="btn" (click)="openLink(userDetails?.socialMedia?.instagram)">
+          <img src="assets/socialmedia/insta.png" />
+        </button>
+      </div>
+      <button class="profile-user-button" (click)="logout()">Logout</button>
+    </div>
+
+    <div class="general-user-details">
+      <div class="user-bio">
+        <div class="title">
+          <h1>Bio</h1>
+        </div>
+        <p style="text-align: center; margin-top: 30px; font-size: large">
+          {{ userDetails?.personalInfo?.bio }}
+        </p>
+      </div>
+
+      <div class="center-line"></div>
+
+      <div class="title">
+        <h1>Education</h1>
+      </div>
+
+      <div class="general-user-details-block" *ngIf="userDetails?.education != undefined && userEducation != null">
+        <div *ngFor="let edu of userEducation">
+
+          <div *ngIf="edu.study != ''" class="general-info-education">
+            <h3>{{ edu.study | uppercase }}</h3>
+            <p>
+              {{ edu.university }}, {{ edu.uniState }}, {{ edu.uniCountry }}
+            </p>
+            <p class="timeline">
+              {{ edu.eduStart }}
+              <span style="font-size: larger; font-weight: bold; color: #865d36">To</span>
+              {{ edu.current ? "Present" : edu.eduEnd }}
+            </p>
+          </div>
+          <div *ngIf="edu.study == ''" class="general-info-education">
+            <h3> No data Available </h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="center-line"></div>
+
+      <div class="title">
+        <h1>Experience</h1>
+      </div>
+
+      <div class="general-user-details-block" *ngIf="userDetails?.experience != undefined && userExperience != null">
+        <div *ngFor="let exp of userExperience">
+
+          <div *ngIf="exp.job != ''" class="general-info-education" >
+            <h3>{{ exp.job | uppercase }}</h3>
+            <p>{{ exp.companyName }}</p>
+            <p class="timeline">
+              {{ exp.exStart }}
+              <span style="font-size: larger; font-weight: bold; color: #865d36">To</span>
+              {{ exp.present ? "Present" : exp.exEnd }}
+            </p>
+          </div>
+
+          <div *ngIf="exp.job == ''" class="general-info-education">
+              <h3> No data Available </h3>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

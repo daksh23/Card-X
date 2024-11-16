@@ -41,12 +41,20 @@
 
         <div class="form-group">
           <label for="bio">Bio <span>*</span></label>
-          <textarea id="bio" formControlName="bio" rows="5" required></textarea>
+          <textarea id="bio" formControlName="bio" rows="5" required minlength="100"></textarea>
+           <!-- Min Length Error -->
+           <small  *ngIf="registerForm.get('personalInfo.bio')?.hasError('minlength') ">
+            <span class="invalid-field">
+              Intro must be at least 100 characters long
+            </span>
+          </small>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" *ngIf="registerForm.get('personalInfo.email')?.valid">
           <label for="image">Upload Profile</label>
-          <input type="file" id="image" (change)="onFileChange($event)" />
+          <input class="upload-button" type="file" id="image" (change)="onFileChange($event)" />
+          <p class="errorMessage" *ngIf="uploadResponse?.error != undefined"> {{ uploadResponse?.error }} </p>
+          <p class="completeMessage" *ngIf="uploadResponse?.complete != undefined"> {{ uploadResponse?.complete }} </p>
         </div>
 
         <!-- Address -->
@@ -71,15 +79,24 @@
         <div class="form-row" formGroupName="credentials">
           <div class="form-group">
             <label for="password">Create a password <span>*</span></label>
-            <input type="password" id="password" formControlName="password" required />
+            <input type="password" id="password" formControlName="password" required minlength="8"/>
           </div>
           <div class="form-group">
             <label for="confirmPassword">Confirm password <span>*</span></label>
             <input type="password" id="confirmPassword" formControlName="confirmPassword" required />
 
+            <!-- Password not matched -->
              <small *ngIf="registerForm.get('personalInfo.credentials.confirmPassword')?.hasError('matching') 
                       &&  registerForm.get('personalInfo.credentials.confirmPassword')?.touched">
-              <span class="invalid-field">Passwords do not match</span>
+              <span class="invalid-field">
+                Passwords do not match
+              </span>
+            </small>
+            <!-- Password is less then min Length -->
+            <small  *ngIf="registerForm.get('personalInfo.credentials.password')?.hasError('minlength') ">
+              <span class="invalid-field">
+                Password must be at least 8 characters long
+              </span>
             </small>
 
           </div>
@@ -198,7 +215,7 @@
 
           <div class="form-group">
             <label for="companyName">Company Name</label>
-            <input type="text" id="companyName" formControlName="companyName" />
+            <input type="text" id="companyName" formControlName="companyName"  placeholder="Please add Location name as well like Canada, India, etc"/>
           </div>
 
           <button *ngIf="experienceControls.length > 1" type="button" class="remove-add-cta-button" (click)="removeExperience(j)">
@@ -216,11 +233,13 @@
       <!-- Submit Button -->
       <button type="submit" class="cta-button" [disabled]="!registerForm.valid">Register</button>
     </form>
+
+    <!-- Comfirmation Box after submit -->
     <div class="centered-box" *ngIf="response?.complete != null && response?.complete == 'Registration Completed.'">
       <mat-icon class="green_email" aria-hidden="false" aria-label="Example home icon" fontIcon="email"></mat-icon>
       Registration Completed. Mail Sent!
       <button class="center-button" (click)="routeFunc(login)" [class.active]="isActive(login)">LOGIN</button>
-
+      <p class="errorMessage" *ngIf="!uploadProfilePhotoInd">** {{uploadProfilePhotoErrorMsg}} **</p>
     </div>
     <div class="centered-box"  *ngIf="response?.error != null && response?.error == 'Registration Fail.'">
       Something went wrong, please try after some time. Than you !

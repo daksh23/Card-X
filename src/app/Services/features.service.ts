@@ -13,7 +13,7 @@ export class FeaturesService {
 
   retrieveFeaturesList(): Observable<FeaturesModel[]> {
     console.log("FeaturesService :: " + "retrieveFeaturesList method :: ");
-    return this.httpClient.get<FeaturesModel[]>('http://localhost:8080/cardx/rest/v1/card/features');
+    return this.httpClient.get<FeaturesModel[]>('http://localhost:8081/cardx/rest/v1/card/features');
   }
 
 }
