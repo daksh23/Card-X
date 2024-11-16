@@ -23,7 +23,7 @@ export class RegisterService {
       responseType: 'text' as 'json' // explicitly cast to 'json' to 'text'
     };
     
-    return this.httpClient.post<string>('http://localhost:8080/cardx/rest/v1/user/add', registerDetails, httpOptions);
+    return this.httpClient.post<string>('http://localhost:8081/cardx/rest/v1/user/add', registerDetails, httpOptions);
   }
 
 
@@ -69,7 +69,7 @@ export class RegisterService {
 
     const body = { currentPassword, newPassword, confirmPassword, email };
     
-    return this.httpClient.post<any>("http://localhost:8080/cardx/rest/v1/user/changePassword", body, { headers }).pipe(map(response => {
+    return this.httpClient.post<any>("http://localhost:8081/cardx/rest/v1/user/changePassword", body, { headers }).pipe(map(response => {
       console.log("changePassword method :: " + "changePassword  Response:: " + response);
       return response;
     })

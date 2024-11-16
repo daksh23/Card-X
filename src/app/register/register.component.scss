@@ -114,6 +114,17 @@
                 }
             }
 
+            .upload-button {
+                width: 100%;
+                padding: 10px 20px;
+                font-size: 1em;
+                color: $white-color;
+                background-color: $dark-asset-color;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
             .cta-button {
                 width: 100%;
                 /* Ensure button width matches input width */

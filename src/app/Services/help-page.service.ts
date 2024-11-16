@@ -23,7 +23,7 @@ export class HelpPageService {
       responseType: 'text' as 'json' // explicitly cast to 'json' to 'text'
     };
     
-    return this.httpClient.post<string>('http://localhost:8080/cardx/rest/v1/card/help/add', helpPageModal, httpOptions);
+    return this.httpClient.post<string>('http://localhost:8081/cardx/rest/v1/card/help/add', helpPageModal, httpOptions);
   }
 
 }

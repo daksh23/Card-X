@@ -22,7 +22,7 @@ export class FooterComponent implements OnInit {
   getQuotes() {
     console.log("Method name :: getQuotes");
     
-    this.http.get<QuoteModel>("http://localhost:8080/cardx/rest/v1/quotes").subscribe(data => {
+    this.http.get<QuoteModel>("http://localhost:8081/cardx/rest/v1/quotes").subscribe(data => {
       console.log("Response from quote api :: " + "Author :: " + data.author + " :: Quote :: " + data.text);
 
       if(data != null && (data.author != null || data.text != null)){

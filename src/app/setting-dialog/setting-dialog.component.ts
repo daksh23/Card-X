@@ -26,8 +26,8 @@ export class SettingDialogComponent {
     // close the model
     this.close();
 
-    // Moved to home page.
-    this.commonutilService.goToPageByUrl('/home');
+    // Window Reload to remove all kind of cache
+    location.reload();
 
   }
 

@@ -1,0 +1,19 @@
+@import '../../../constants.scss';
+
+.banner {
+    height: 400px;
+    background: url('/assets/backgrounds/waves.png') repeat-x;
+    background-repeat: no-repeat;
+    background-size: 100% 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: $white-color;
+
+    .banner-content {
+      position: relative;
+      z-index: 1;
+    }
+  }
+  
