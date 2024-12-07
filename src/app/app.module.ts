@@ -30,24 +30,30 @@ import { SettingDialogComponent } from './setting-dialog/setting-dialog.componen
 import { ChangePasswordComponent } from './setting-dialog/change-password/change-password.component';
 import { OrderComponent } from './order/order.component';
 import { CardModelComponent } from './designs/card-model/card-model.component';
-import {TooltipPosition, MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule} from '@angular/material/tooltip';
 import { AiComponent } from './home/ai/ai.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
 import { DashboardBannerComponent } from './dashboard/dashboard-banner/dashboard-banner.component';
 import { catchError, firstValueFrom, of } from 'rxjs';
+import { PaypalComponent } from './paypal/paypal.component';
+import { PaypalModelComponent } from './paypal/paypal-model/paypal-model.component';
+import { ConfirmationPageComponent } from './confirmation-page/confirmation-page.component';
 
-async function appInitializer(http:HttpClient){
-  try{
-    const response = await firstValueFrom(http.get('http://localhost:4200/cardx/rest/v1/health/status'));
-  }catch (error) {
-    console.error('Backend service is unavailable:', error);
-    document.body.innerHTML = `
-      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
-        <h1 style="color: red;">Service Unavailable</h1>
-        <p>The application cannot start because the backend service is not reachable. Please try again later.</p>
-      </div>
-    `;
-  }
+// A function to check the backend health
+export function appInitializer(http: HttpClient): () => Promise<any> {
+  return () =>
+    firstValueFrom(
+      http.get("http://localhost:8081/cardx/rest/v1/health/status").pipe()
+    ).catch((error) => {
+      console.error('Backend service unavailable:', error);
+      document.body.innerHTML = `
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+          <h1 style="color: red;">Service Unavailable</h1>
+          <p>The application cannot start because the backend service is not reachable. Please try again later.</p>
+        </div>
+      `;
+      throw error; // Prevent the application from bootstrapping
+    });
 }
 
 @NgModule({
@@ -74,7 +80,10 @@ async function appInitializer(http:HttpClient){
     CardModelComponent,
     AiComponent,
     ProfileComponent,
-    DashboardBannerComponent
+    DashboardBannerComponent,
+    PaypalComponent,
+    PaypalModelComponent,
+    ConfirmationPageComponent
   ],
   imports: [
     BrowserModule,

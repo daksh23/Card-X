@@ -29,6 +29,7 @@ export class ProfileComponent implements OnInit {
   filedata:any;
   newImageName:string = '';
   uploadResponse:ResponseModal | null = null;
+  userName:string = '';
                                                                                                                                  
   ngOnInit(): void {
     this.profileService.retrieveProfile().subscribe((data) =>{
@@ -41,11 +42,13 @@ export class ProfileComponent implements OnInit {
       // Experience
       this.userExperience = data.experience;
 
-      this.newImageName = data.personalInfo.image;
+      const existImageName = data.personalInfo.image;
 
-      if(this.newImageName == 'false'){
-          this.defaultUrl = 'assets/profile/' + this.newImageName + '.jpg';
-          this.newImageName = data.personalInfo.userName;
+      // userName
+      this.userName = data.personalInfo.userName;
+
+      if(existImageName != 'false'){
+          this.defaultUrl = 'assets/profile/' + existImageName + '.jpg';
       }
       
       console.log("ProfileComponent :: ngOnInit :: NewImageName :: " + this.newImageName + "defaultUrl :: " + this.defaultUrl);
@@ -77,11 +80,15 @@ export class ProfileComponent implements OnInit {
 
   /* Upload button functioanlity */
   upload() {
+    
     console.log("ProfileComponent :: method Upload :: ");
+    
     if (!this.filedata) {
       console.error('No file selected.');
       return;
     }
+
+    this.newImageName = this.userName;
 
     const myFormData = new FormData();
     myFormData.append('file', this.filedata);

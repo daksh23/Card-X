@@ -4,6 +4,6 @@ export interface CardDesignModel {
   image: string;
   collection: string;
   dmyUserName: string;  
-  designAmount:number;
+  designAmount:string;
   designType:string;
 }

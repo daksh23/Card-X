@@ -46,8 +46,8 @@
 
     <div class="order-personal-information">
       <h1>Almost There!</h1>
-      <p> Your Amount is : {{getCard?.designAmount}} </p>
-      <button class="cta-button-proceed">Pay Now</button>
+      <p> Your Amount is : {{getCard?.designAmount}}  CAD</p>
+      <button class="cta-button-proceed" (click)="openPaypal()">Pay Now</button>
     </div>
   </div>
 </div>
