@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { CardDesignModel } from '../Model/CardDesign.model';
 import { CommonutilService } from '../Services/commonutil.service';
 import { FormControl } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { PaypalModelComponent } from '../paypal/paypal-model/paypal-model.component';
 
 @Component({
   selector: 'app-order',
@@ -15,11 +17,10 @@ export class OrderComponent implements OnInit {
   private commonutilService:CommonutilService = inject(CommonutilService);
   public design:string = 'card-designs';
   public ai:string = 'ai';
-
   isCameDirectly:boolean = true;
   public designTypeCond:string = '';
   totalDesignType:any = ['standard','advanced','premium'];
-
+  private dialog: MatDialog = inject(MatDialog);
 
   constructor(){ }
 
@@ -45,5 +46,20 @@ export class OrderComponent implements OnInit {
   
   isActive(value:string):boolean {
     return this.commonutilService.isActive(value);
-  }  
+  } 
+
+  openPaypal(){
+    console.log("openPaypalModel method :: OrderComponent :: ");
+    
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+       amount: this.getCard?.designAmount, // Pass payable amount
+       cardDesign: this.getCard // Pass selected cardDesign
+    }
+
+    this.dialog.open(PaypalModelComponent, dialogConfig);
+  }
 }

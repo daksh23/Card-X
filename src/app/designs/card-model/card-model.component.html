@@ -10,6 +10,7 @@
         <div class="selected-design-view">
             <img [src]="card.image" alt="{{ card.designName }}">
             <p>  {{ card.designType | uppercase }} </p>
+            <p class="selected-design-view-amount">  Amount : ${{ card.designAmount| uppercase }} CAD </p>
         </div>
 
         <div class="design-model-buttons" *ngIf="isLoggedIn()">

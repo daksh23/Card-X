@@ -90,6 +90,14 @@
     font-size: 1.2em;
   }
 
+  .selected-design-view-amount {
+    color: $extra-light-asset-color;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0px;
+    padding: 0px;
+  }
+
   @media screen and (max-width: 768px) {
     width: 100%;
     height: auto;
