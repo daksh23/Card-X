@@ -21,13 +21,12 @@ export class OrderComponent implements OnInit {
   public designTypeCond:string = '';
   totalDesignType:any = ['standard','advanced','premium'];
   private dialog: MatDialog = inject(MatDialog);
-
+  
   constructor(){ }
 
   ngOnInit(): void {
-    this.getCard = history.state.card; // Get selected cardDetails 
-    
-    if(this.getCard !== undefined)
+    this.getCard = history.state.card; // Get selected cardDetails
+    if(this.getCard !== undefined )
     {
       console.log("Order page :: Data got from design page :: " + this.commonutilService.printObjectValues(this.getCard));
       this.isCameDirectly = false;

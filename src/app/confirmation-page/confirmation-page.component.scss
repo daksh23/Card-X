@@ -1,0 +1,134 @@
+/* confirmation-page.component.scss */
+@import "../../constants.scss";
+
+
+.confirmation-page {
+    .banner {
+      position: relative;
+      height: 400px;
+      width: 100%;
+      background: url("/assets/backgrounds/waves.png") repeat-x;
+      background-repeat: no-repeat;
+      background-size: 100% 450px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: $white-color;
+  
+      .banner-content {
+        position: relative;
+        z-index: 1;
+      }
+  
+      h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+      }
+  
+      p {
+        font-size: 1.2em;
+      }
+    }
+
+    .confirmation-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    
+        .confirmation-page-content {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+    
+          .mat-icon {
+            .large-icon {
+              color: $sent_icon;
+              margin-bottom: 100px;
+            }
+          }
+          
+          h1 {
+            margin: 0 0 20px 0;
+            padding: 0;
+          }
+    
+          p {
+            font-size: 1.2em;
+            padding: 0;
+            margin: 5px 0 0 0;
+            color: $light-asset-color;
+          }
+        }
+      
+        .ordered-design {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          margin: 0;
+    
+          h4 {
+            font-size: 1.5em;
+            margin: 10px 0 20px 0px;
+            padding: 0;
+            color: $light-asset-color;
+          }
+
+          p {
+            font-size: 1.5em;
+            margin: 10px 0 20px 0px;
+            padding: 0;
+            color: $light-asset-color;
+          }
+    
+          img {
+            border: 1px solid $extra-light-asset-color;
+            border-radius: 10px;
+            width: 500px;
+            max-width: 500px;
+            height: 300px;
+          }
+        }
+
+        .ordered-confirmation{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          margin: 0;
+
+          h4 {
+            font-size: 1.5em;
+            margin: 10px 0 20px 0px;
+            padding: 0;
+            color: $light-asset-color;
+          }
+
+          p {
+            font-size: 1.2em;
+            padding: 0;
+            margin: 0;
+            color: $light-asset-color;
+
+            .bold-amount{
+              color: $dark-bg-color;
+            }
+          }
+          
+          .ordered-design-cta-button {
+            padding: 10px 20px;
+            margin: 20px;
+            font-size: 1em;
+            background-color: $dark-asset-color;
+            border: none;
+            color: $white-color;
+            cursor: pointer;
+            transition: background-color 0.3s;
+          }
+        }
+    }    
+}

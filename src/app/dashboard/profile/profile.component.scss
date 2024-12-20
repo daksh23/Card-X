@@ -139,6 +139,14 @@
                     color: $dark-asset-color;
                 }
 
+                h4 {
+                    margin-top: 0;
+                    color: $dark-bg-color;
+                }
+
+                img{
+                    border-radius: 10px;
+                }
                 .timeline {
                     font-weight: bolder;
                 }
@@ -147,5 +155,24 @@
         }
           
     }
+
+    .general-info-order {   
+        border: 1px solid $extra-light-asset-color;
+        margin-right: 5px;
+        padding: 10px;
+
+        h3{
+            color: $dark-asset-color;
+        }
+
+        h4 {
+            color: $dark-bg-color;
+        }
+
+
+        .timeline {
+            font-weight: bolder;
+        }
+      }
 
 }

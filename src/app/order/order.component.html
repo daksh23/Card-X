@@ -1,7 +1,9 @@
+<!-- Not Found Page if User uses URL to navigate URL -->
 <div *ngIf="isCameDirectly">
     <app-not-found></app-not-found>
 </div>
 
+<!-- Order Page - Display -->
 <div class="order-page" *ngIf='!isCameDirectly'>
   <div class="banner">
     <div class="banner-content">

@@ -62,7 +62,6 @@
 
       <div class="general-user-details-block" *ngIf="userDetails?.education != undefined && userEducation != null">
         <div *ngFor="let edu of userEducation">
-
           <div *ngIf="edu.study != ''" class="general-info-education">
             <h3>{{ edu.study | uppercase }}</h3>
             <p>
@@ -75,7 +74,7 @@
             </p>
           </div>
           <div *ngIf="edu.study == ''" class="general-info-education">
-            <h3> No data Available </h3>
+            <h3>No data Available</h3>
           </div>
         </div>
       </div>
@@ -88,8 +87,7 @@
 
       <div class="general-user-details-block" *ngIf="userDetails?.experience != undefined && userExperience != null">
         <div *ngFor="let exp of userExperience">
-
-          <div *ngIf="exp.job != ''" class="general-info-education" >
+          <div *ngIf="exp.job != ''" class="general-info-education">
             <h3>{{ exp.job | uppercase }}</h3>
             <p>{{ exp.companyName }}</p>
             <p class="timeline">
@@ -100,11 +98,43 @@
           </div>
 
           <div *ngIf="exp.job == ''" class="general-info-education">
-              <h3> No data Available </h3>
+            <h3>No data Available</h3>
           </div>
-
         </div>
       </div>
+
+      <div class="center-line"></div>
+
+      <div class="title">
+        <h1>Order History</h1>
+      </div>
+
+      <div class="general-user-details-block" *ngIf="
+          userDetails?.orderList != undefined && userDetails?.orderList != null
+        ">
+        <div *ngFor="let ordr of userOrderHistory">
+          <div *ngIf="ordr.order_id != ''" class="general-info-education">
+            <h3> Design - {{ ordr.cardDetails.designName | uppercase }} </h3>
+            <h4> Type - {{ ordr.cardDetails.designType | uppercase }} </h4>
+            
+            <img [src]="ordr?.cardDetails?.image" height="100" width="200"/>
+            <p> Order ID : {{ ordr.order_id | uppercase }}</p>
+            <p style="font-size: large; font-weight: bolder;"> ${{ ordr.cardDetails.designAmount }} </p>
+            <p style="margin-bottom:0;"> {{ ordr.date_time }} </p>
+          </div>
+
+          <div *ngIf="ordr == null" class="general-info-order">
+            <h3>No Order Found</h3>
+          </div>
+        </div>
+      </div>
+
+      <div  *ngIf="userDetails?.orderList == undefined && userDetails?.orderList == null" class="general-user-details-block">
+        <div class="general-info-order">
+          <h3>No Order Found</h3>
+        </div>
+      </div>
+      
     </div>
   </div>
 </div>

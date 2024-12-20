@@ -18,7 +18,9 @@ export class PaypalModelComponent {
     this.cardDesign = data.cardDesign;
   }
   
-  close(){
+  close(): void {
+    console.log("Close function :: ");
+    
     this.dialogRef.close();
   }
 

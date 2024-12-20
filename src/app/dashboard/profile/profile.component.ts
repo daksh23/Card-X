@@ -3,6 +3,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { EducationModal } from 'src/app/Model/Education.modal';
 import { ExperienceModal } from 'src/app/Model/Experience.modal';
+import { OrderListModel } from 'src/app/Model/OrderList.modal';
 import { ResponseModal } from 'src/app/Model/Response.modal';
 import { UserModel } from 'src/app/Model/User.model';
 import { CommonutilService } from 'src/app/Services/commonutil.service';
@@ -20,6 +21,7 @@ export class ProfileComponent implements OnInit {
   userDetails?:UserModel;
   userEducation:EducationModal[] = [];
   userExperience:ExperienceModal[] = [];
+  userOrderHistory:OrderListModel[] = [];
 
   private commonutilService:CommonutilService = inject(CommonutilService);
   private profileService:ProfileService = inject(ProfileService);
@@ -42,8 +44,11 @@ export class ProfileComponent implements OnInit {
       // Experience
       this.userExperience = data.experience;
 
-      const existImageName = data.personalInfo.image;
+      // OrderList
+      this.userOrderHistory = data.orderList;
 
+      const existImageName = data.personalInfo.image;
+    
       // userName
       this.userName = data.personalInfo.userName;
 

@@ -15,3 +15,10 @@ your ultimate solution for sharing your professional and personal information se
 
 ## Backend Repo
 > https://github.com/daksh23/Card-X---backend
+
+## Upcomming Features
+- Add to Wallet
+- Quick Image processing
+- AI Generate Designs
+- Add github Link into Profile while register
+- Edit Options in Profile Page

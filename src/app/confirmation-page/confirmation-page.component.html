@@ -1,1 +1,39 @@
-<p>confirmation-page works!</p>
+<!-- Come Directly -->
+<app-not-found *ngIf="!isDirectly"> </app-not-found>
+
+<div class="confirmation-page" *ngIf="isDirectly">
+  <div class="banner">
+    <div class="banner-content">
+      <h1>Confirmation Page</h1>
+      <p>Your order successfully completed.</p>
+    </div>
+  </div>
+
+  <div class="confirmation-container">
+    <div class="confirmation-page-content">
+      <h1>Your Order</h1>
+      <p> 
+        <span class="mat-icon"><mat-icon class="large-icon">mark_email_read</mat-icon></span>  
+        You will recieve mail from us shortly with invoice and your digital copy. 
+      </p>
+    </div>
+
+    <div class="center-line"></div>
+
+    <div class="ordered-design">
+      <h4>Your Design - "{{card?.designName }}" </h4>
+      <img [src]="card?.image" alt="{{ card?.designName }}" />
+    </div>
+
+    <div class="center-line"></div>
+
+    <div class="ordered-confirmation">
+      <h4> Invoice </h4>
+      <p>
+        Paid Amount :
+        <span class="bold-amount"> $ {{ card?.designAmount }}</span>
+      </p>
+      <button class="ordered-design-cta-button" (click)="goToHome()" [class.active]="isActive()">GO TO HOME</button>
+    </div>
+  </div>
+</div>

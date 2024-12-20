@@ -1,8 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { PaymentService } from '../Services/payment.service';
 import { CardDesignModel } from '../Model/CardDesign.model';
 import { CommonutilService } from 'src/app/Services/commonutil.service';
 import { firstValueFrom } from 'rxjs';
+import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
+import { PaypalModelComponent } from './paypal-model/paypal-model.component';
+
 
 @Component({
   selector: 'app-paypal',
@@ -18,7 +22,9 @@ export class PaypalComponent implements OnInit {
   payerId:String = '';
   paymentCompletedFlag:boolean = false;
 
-  constructor( private paymentService:PaymentService, private commonutilService:CommonutilService){ }
+  private dialogRef = inject(MatDialogRef<PaypalModelComponent>);
+
+  constructor( private paymentService:PaymentService, private commonutilService:CommonutilService, private router: Router ){ }
   
   ngOnInit(): void {
     console.log("PaypalComponent component :: Parameters at start :: totalAmount :: " + this.totalAmount + ":: cardDesign Object :: " +this.commonutilService.printObjectValues( this.cardDesigns));
@@ -85,13 +91,20 @@ export class PaypalComponent implements OnInit {
             const payerId = data.payerID;
             const orderId = data.orderID; 
             const paymentId = data.paymentID;
-         
 
             const result = await firstValueFrom(this.paymentService.executePayment( paymentId, payerId , orderId, this.email, this.cardDesigns ));
             console.log("executePayment response:", result);
 
             if(result != null){
-              // Redirect to Confirmation Page.
+            console.log("Result is not null after excute endpoint :: " + data);
+              
+              // Create new boolean for paypal popup close() 
+              this.paymentCompletedFlag = true;
+
+              this.dialogRef.close();
+
+              // Redirect to Order Page for confirmation Component.
+              this.router.navigate([`/confirmation`], { state:{ orderCompleted: true, card: this.cardDesigns, isDirectly:true }});
             }
 
           } catch (error) {

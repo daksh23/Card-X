@@ -19,7 +19,6 @@ export class DesignsComponent implements OnInit {
   private cardDesignService: CardDesignService = inject(CardDesignService);
   private commonutilService: CommonutilService = inject(CommonutilService);
   private authenticationService: AuthenticationService = inject(AuthenticationService);
-  // private dialogRef = inject(MatDialogRef<DesignsComponent>);
   private dialog: MatDialog = inject(MatDialog);
 
   ngOnInit(): void {
