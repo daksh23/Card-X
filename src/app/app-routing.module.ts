@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { authGuard, registerLoginGuard } from './guards/auth.guard';
 import { OrderComponent } from './order/order.component';
+import { ConfirmationPageComponent } from './confirmation-page/confirmation-page.component';
 
 const routes: Routes = [
   { path:'home', redirectTo:'', pathMatch:'full' },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path:'login', component:LoginComponent, canActivate:[registerLoginGuard]},
   { path:'register', component:RegisterComponent,   canActivate:[registerLoginGuard]},
   {path:'order', component:OrderComponent, canActivate:[authGuard]},
+  {path:'confirmation', component: ConfirmationPageComponent, canActivate:[authGuard]},
   { path:'dashboard', component:DashboardComponent , canActivate:[authGuard]},
   { path:'**', component:NotFoundComponent }
 ];
